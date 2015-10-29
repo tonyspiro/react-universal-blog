@@ -1,13 +1,13 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'prod' ]
-2 info using npm@2.14.4
-3 info using node@v4.1.2
-4 verbose run-script [ 'preprod', 'prod', 'postprod' ]
-5 info preprod universal@1.0.0
-6 info prod universal@1.0.0
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'dev' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.0
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info predev universal@1.0.0
+6 info dev universal@1.0.0
 7 verbose unsafe-perm in lifecycle true
-8 info universal@1.0.0 Failed to exec prod script
-9 verbose stack Error: universal@1.0.0 prod: `NODE_ENV=production babel-node app-server.js`
+8 info universal@1.0.0 Failed to exec dev script
+9 verbose stack Error: universal@1.0.0 dev: `NODE_ENV=development webpack && NODE_ENV=development babel-node app-server.js`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
 9 verbose stack     at emitTwo (events.js:87:13)
@@ -19,18 +19,18 @@
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 10 verbose pkgid universal@1.0.0
 11 verbose cwd /Users/tonyspiro/Desktop/sandbox/universal
-12 error Darwin 15.0.0
-13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "prod"
-14 error node v4.1.2
-15 error npm  v2.14.4
+12 error Darwin 14.1.0
+13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
+14 error node v4.2.0
+15 error npm  v2.14.7
 16 error code ELIFECYCLE
-17 error universal@1.0.0 prod: `NODE_ENV=production babel-node app-server.js`
+17 error universal@1.0.0 dev: `NODE_ENV=development webpack && NODE_ENV=development babel-node app-server.js`
 17 error Exit status 1
-18 error Failed at the universal@1.0.0 prod script 'NODE_ENV=production babel-node app-server.js'.
+18 error Failed at the universal@1.0.0 dev script 'NODE_ENV=development webpack && NODE_ENV=development babel-node app-server.js'.
 18 error This is most likely a problem with the universal package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
-18 error     NODE_ENV=production babel-node app-server.js
+18 error     NODE_ENV=development webpack && NODE_ENV=development babel-node app-server.js
 18 error You can get their info via:
 18 error     npm owner ls universal
 18 error There is likely additional logging output above.

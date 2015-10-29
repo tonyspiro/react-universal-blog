@@ -1,8 +1,11 @@
 // app-client.js
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import store from './stores/store'
 
-import AppClient from './components/AppClient'
+import App from './components/App'
 
 var app = document.getElementById('app')
-render(<AppClient />, app)
+
+const data = store.data;
+render(<App data={data}/>, app)

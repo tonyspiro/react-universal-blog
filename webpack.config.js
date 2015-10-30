@@ -1,8 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 
-console.log(process.env.NODE_ENV);
-
 if(process.env.NODE_ENV === 'development'){
   
   var entry = [

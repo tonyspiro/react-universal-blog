@@ -8,14 +8,16 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import WebpackDevServer from 'webpack-dev-server'
 import config from './webpack.config.js'
 import store from './stores/store'
-const data = store.data;
+
+// Express
+const app = express()
+app.use('/dist', express.static(__dirname + '/dist'))
+
+// Store
+const data = store.data
 
 // Components
 import App from './components/App'
-
-const app = express()
-
-app.use('/dist', express.static(__dirname + '/dist'))
 
 if(process.env.NODE_ENV === 'development'){
 
@@ -28,7 +30,7 @@ if(process.env.NODE_ENV === 'development'){
     if (err) {
       console.log(err)
     }
-    console.log('Listening at localhost:3000 in development mode');
+    console.log('Listening at localhost:3000 in development mode')
   });
 
 } else {
@@ -41,7 +43,8 @@ if(process.env.NODE_ENV === 'development'){
     const footer = `<script src="/dist/bundle.js"></script></body></html>`
 
     res.send(header + markup + footer)
-  });
+  
+  })
   
   app.listen(3000)
   console.log('Listening at localhost:3000 in production mode')

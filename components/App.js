@@ -1,23 +1,53 @@
+// App.js
 import React, { Component } from 'react'
 import Shorti from 'shorti'
+import Header from './Header'
 
 export default class App extends Component {
   
+  constructor(){
+    super()
+    
+    let _this = this
+    
+    this.state = {
+      bucket: {}
+    }
+
+    fetch('https://api.cosmicjs.com/v1/tonyspirocom')
+      .then(function(response) {
+          if (response.status >= 400) {
+              throw new Error("Bad response from server");
+          }
+          return response.json();
+      })
+      .then(function(response) {
+        _this.setState({
+          bucket: response.bucket
+        })
+      });
+  }
+
   handleClick(){
-    alert('clicked');
+    alert('clicked')
   }
 
   render(){
     
-    let container_style__default = Shorti('p-20 solid bw-10 bc-444 m-20')
-    let container_style__active = {...Shorti('bg-00FF00'), ...container_style__default}
+    let media = this.state.bucket.media
+    let first_img_src
+
+    if(media){
+      first_img_src = 'https://cosmicjs.com/uploads/' + media[19].name
+    }
+    let container_style__default = Shorti('w-100p h-800 bg-url(' + first_img_src + ') bg-cover bg-center')
     
     return (
       <div>
-        <h1>{ this.props.data.mode }</h1>
-        <div style={container_style__active}>
-          <button onClick={ this.handleClick }>Click me</button>
-          This a is just a test
+        <Header data={ this.props.data }/>
+        <div style={container_style__default}>
+          
+          
         </div>
       </div>
     )

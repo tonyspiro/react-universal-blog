@@ -7,5 +7,5 @@ import App from './components/App'
 
 var app = document.getElementById('app')
 
-const data = store.data;
+const data = store.data
 render(<App data={data}/>, app)

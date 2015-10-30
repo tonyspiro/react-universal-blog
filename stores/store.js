@@ -1,8 +1,7 @@
-module.exports = {
+const Store = {
   data: {
-    mode: 'DEVELOPMENT MODE',
-    page: {
-      title: 'Hello there'
-    }
+    mode: 'PROD MODE'
   }
 }
+
+export default Store

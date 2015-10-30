@@ -1,4 +1,5 @@
-let constants;
+// constants.js
+let constants
 if(process.env.NODE_ENV === 'development'){
   constants = {
     DEV: true,

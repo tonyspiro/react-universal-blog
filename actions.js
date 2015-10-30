@@ -1,5 +1,6 @@
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+// actions.js
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
 
 export function getBucket(Store){
   
@@ -12,6 +13,6 @@ export function getBucket(Store){
     })
     .then(response => {
       Store.bucket = response.bucket
-      Store.emitChange();
+      Store.emitChange()
     })
 }

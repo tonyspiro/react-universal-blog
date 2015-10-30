@@ -1,31 +1,31 @@
 // AppDispatcher.js
-import {Dispatcher} from 'flux';
-import AppStore from '../stores/AppStore';
+import {Dispatcher} from 'flux'
+import AppStore from '../stores/AppStore'
 
-const AppDispatcher = new Dispatcher();
+const AppDispatcher = new Dispatcher()
 
 // Register callback with AppDispatcher
 AppDispatcher.register((payload) => {
 
-  let action = payload.action;
+  let action = payload.action
 
   switch(action) {
 
     case 'init-app':
-      AppStore.init(payload);
-      break;
+      AppStore.init(payload)
+      break
 
     case 'get-more-items':
-      AppStore.getMoreItems();
-      break;
+      AppStore.getMoreItems()
+      break
 
     default:
-      return true;
+      return true
 
   }
 
-  return true;
+  return true
 
-});
+})
 
-export default AppDispatcher;
+export default AppDispatcher

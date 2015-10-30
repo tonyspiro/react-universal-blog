@@ -7,7 +7,6 @@ import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import WebpackDevServer from 'webpack-dev-server'
 import config from './webpack.config.js'
-import store from './stores/store'
 import constants from './constants'
 
 // Express

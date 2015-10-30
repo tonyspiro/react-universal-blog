@@ -1,6 +1,7 @@
+
 // AppStore.js
 import { EventEmitter } from 'events'
-import { getBucket } from '../actions'
+import { getBucket } from '../actions/actions'
 import _ from 'lodash'
 
 const AppStore = _.extend({}, EventEmitter.prototype, {

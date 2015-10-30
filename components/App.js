@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import Shorti from 'shorti'
 import Header from './Header'
-import { getBucket } from '../actions'
+import { getBucket } from '../actions/actions'
 
 // Utilities
 import AppStore from '../stores/AppStore'
@@ -19,8 +19,8 @@ export default class App extends Component {
   }
 
   constructor(){
-    super()
     
+    super()
     let _this = this
     
     // API data

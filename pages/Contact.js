@@ -1,4 +1,4 @@
-// About.js
+// Contact.js
 import React, { Component } from 'react'
 
 export default class Contact extends Component {

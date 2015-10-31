@@ -1,7 +1,7 @@
 
 // AppStore.js
 import { EventEmitter } from 'events'
-import { getBucket } from '../actions/actions'
+import { getBucket, removeItem } from '../actions/actions'
 import _ from 'lodash'
 
 const AppStore = _.extend({}, EventEmitter.prototype, {
@@ -9,7 +9,7 @@ const AppStore = _.extend({}, EventEmitter.prototype, {
   // Initial data
   bucket: {},
 
-  init: function(payload) {
+  init: function() {
     
     getBucket(this)
 

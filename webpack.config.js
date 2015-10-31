@@ -1,7 +1,8 @@
+// webpack.config.js
 var path = require('path');
 var webpack = require('webpack');
 
-if(process.env.NODE_ENV === 'development'){
+if(process.env.DEV){
   
   var entry = [
     'webpack-dev-server/client?http://localhost:3000',

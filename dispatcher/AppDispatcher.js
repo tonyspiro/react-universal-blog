@@ -12,11 +12,7 @@ AppDispatcher.register((payload) => {
   switch(action) {
 
     case 'init-app':
-      AppStore.init(payload)
-      break
-
-    case 'get-more-items':
-      AppStore.getMoreItems()
+      AppStore.init()
       break
 
     default:

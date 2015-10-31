@@ -4,7 +4,7 @@ require('isomorphic-fetch')
 
 export function getBucket(Store){
   
-  fetch('https://api.cosmicjs.com/v1/wedding-site')
+  fetch('https://api.cosmicjs.com/v1/tonyspirocom')
     .then(response => {
       if (response.status >= 400) {
         throw new Error("Bad response from server")

@@ -1,27 +1,22 @@
-// App.js
+// AppClient.js
 import React, { Component } from 'react'
 import Shorti from 'shorti'
-import Header from './Header'
+import Nav from './Nav'
 import { getBucket } from '../actions/actions'
 
 // Utilities
 import AppStore from '../stores/AppStore'
 import AppDispatcher from '../dispatcher/AppDispatcher'
 
-const getAppState = () => {
-  return AppStore
-}
-
 export default class App extends Component {
   
   _onChange() {
-    this.setState(getAppState())
+    this.setState(AppStore)
   }
 
   constructor(){
     
     super()
-    let _this = this
     
     // API data
     AppDispatcher.dispatch({
@@ -40,6 +35,10 @@ export default class App extends Component {
     AppStore.removeChangeListener(this._onChange.bind(this))
   }
 
+  handleClick(e){
+    console.log(e.target.dataset.id)
+  }
+
   render(){
 
     let bucket = AppStore.bucket
@@ -48,12 +47,13 @@ export default class App extends Component {
     let container_style__default = Shorti('w-100p h-100 bw-1 solid bc-444 p-30 mb-20 mr-2 box')
     
     if(objects){
-      objects_html = objects.map(object=> <div key={object._id} style={container_style__default}>{ object.title }</div>)
+      objects_html = objects.map(object=> <div data-id={ object._id } onClick={ this.handleClick } key={object._id} style={container_style__default}>{ object.title }</div>)
     }
 
     return (
       <div>
-        <Header dev={ this.props.dev }/>
+        <Nav />
+        { this.props.children }
         { objects_html }
       </div>
     )

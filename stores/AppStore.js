@@ -6,7 +6,12 @@ import _ from 'lodash'
 const AppStore = _.extend({}, EventEmitter.prototype, {
 
   // Initial data
-  bucket: {},
+  data: {
+    globals: {},
+    bucket: {
+      objects: []
+    }
+  },
 
   init: function() {
     

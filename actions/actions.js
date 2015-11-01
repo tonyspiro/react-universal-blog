@@ -1,18 +1,12 @@
 // actions.js
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
+import config from '../config';
+import Cosmic from 'cosmicjs';
 
 export function getBucket(Store){
-  
-  fetch('https://api.cosmicjs.com/v1/tonyspirocom')
-    .then(response => {
-      if (response.status >= 400) {
-        throw new Error("Bad response from server")
-      }
-      return response.json()
-    })
-    .then(response => {
-      Store.bucket = response.bucket
-      Store.emitChange()
-    })
+  Cosmic.getBucket(config, function(err, response){
+    Store.data = response
+    Store.emitChange()
+  })
 }

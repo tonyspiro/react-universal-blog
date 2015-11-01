@@ -16,6 +16,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NoMatch from './pages/NoMatch'
 
+import AppStore from './stores/AppStore'
+
 const routes = (
   <Route path="/" component={App}>
     <Route path="about" component={About}/>

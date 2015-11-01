@@ -40,12 +40,11 @@ export default class App extends Component {
   }
 
   render(){
-
-    let bucket = AppStore.bucket
-    let objects = bucket.objects
+    let data = AppStore.data
+    let objects = data.bucket.objects
     let objects_html
     let container_style__default = Shorti('w-100p h-100 bw-1 solid bc-444 p-30 mb-20 mr-2 box')
-    
+
     if(objects){
       objects_html = objects.map(object=> <div data-id={ object._id } onClick={ this.handleClick } key={object._id} style={container_style__default}>{ object.title }</div>)
     }

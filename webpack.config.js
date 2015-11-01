@@ -2,34 +2,17 @@
 var path = require('path');
 var webpack = require('webpack');
 
-if(process.env.DEV){
-  
-  var entry = [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './app-client.js'
-  ];
-
-} else {
-
-  var entry = './app-client.js';
-
-}
-
 module.exports = {
   devtool: 'eval',
-  entry: entry,
+  entry: './app-client.js',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    output: { path: __dirname, filename: 'dist/bundle.js' },
+    filename: 'dist/bundle.js'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot','babel'],
+      loaders: ['babel'],
       exclude: /node_modules/
     }]
   }

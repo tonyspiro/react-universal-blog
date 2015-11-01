@@ -8,7 +8,7 @@ import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import WebpackDevServer from 'webpack-dev-server'
 import config from './webpack.config.js'
-import constants from './constants'
+import constants from './config/constants'
 
 import App from './components/App'
 import Home from './pages/Home'
@@ -29,7 +29,7 @@ const routes = (
 
 // Express
 const app = express()
-app.use('/dist', express.static(__dirname + '/dist'))
+app.use('/dist', express.static(__dirname + '/public/dist'))
 
 if(constants.DEV){
 

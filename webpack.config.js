@@ -6,8 +6,8 @@ module.exports = {
   devtool: 'eval',
   entry: './app-client.js',
   output: {
-    output: { path: __dirname, filename: 'dist/bundle.js' },
-    filename: 'dist/bundle.js'
+    output: { path: __dirname, filename: 'public/dist/bundle.js' },
+    filename: 'public/dist/bundle.js'
   },
   module: {
     loaders: [{

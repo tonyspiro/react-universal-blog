@@ -28,8 +28,8 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "prod": "PROD=true webpack -p && PROD=true babel-node app-deploy.js",
-    "dev": "DEV=true webpack-dev-server"
+    "prod": "webpack -p && PROD=true babel-node app-deploy.js",
+    "dev": "webpack && DEV=true webpack-dev-server --content-base public/"
   },
   "author": "",
   "license": "ISC"

@@ -1,22 +1,24 @@
 // AppStore.js
 import { EventEmitter } from 'events'
-import { getBucket, removeItem } from '../actions/actions'
+import { getObjects, getMoreItems } from '../actions/actions'
 import _ from 'lodash'
 
-const AppStore = _.extend({}, EventEmitter.prototype, {
+export default _.extend({}, EventEmitter.prototype, {
 
   // Initial data
   data: {
     globals: {},
-    bucket: {
-      objects: []
-    }
+    pages: [],
+    item_num: 5
   },
 
+  // Get bucket on init
   init: function() {
-    
-    getBucket(this)
+    getObjects(this)
+  },
 
+  getMoreItems: function(){
+    getMoreItems(this)
   },
 
   // Emit Change event
@@ -35,5 +37,3 @@ const AppStore = _.extend({}, EventEmitter.prototype, {
   }
   
 })
-
-export default AppStore

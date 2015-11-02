@@ -1,12 +1,20 @@
 // AppClient.js
 import React, { Component } from 'react'
-import Shorti from 'shorti'
-import Nav from './Nav'
-import { getBucket } from '../actions/actions'
 
 // Utilities
 import AppStore from '../stores/AppStore'
 import AppDispatcher from '../dispatcher/AppDispatcher'
+
+// Components
+import Nav from './Nav'
+import Footer from './Footer'
+import Loading from './Loading'
+
+// Pages
+import Blog from '../pages/Blog'
+import Work from '../pages/Work'
+import Default from '../pages/Default'
+import NoMatch from '../pages/NoMatch'
 
 export default class App extends Component {
   
@@ -40,21 +48,30 @@ export default class App extends Component {
   }
 
   render(){
-    let data = AppStore.data
-    let objects = data.bucket.objects
-    let objects_html
-    let container_style__default = Shorti('w-100p h-100 bw-1 solid bc-444 p-30 mb-20 mr-2 box')
-
-    if(objects){
-      objects_html = objects.map(object=> <div data-id={ object._id } onClick={ this.handleClick } key={object._id} style={container_style__default}>{ object.title }</div>)
+    
+    if(!AppStore.data.ready){
+      let style = {
+        marginTop: 120
+      }
+      return (
+        <div className="container text-center" style={ style }>
+          <Loading />
+        </div>
+      );
     }
+    let globals = AppStore.data.globals;
+    let pages = AppStore.data.pages;
 
+    // Pass this down!!!!
+    let data = AppStore.data;
+    let Routes = React.cloneElement(this.props.children, { data: data });
+    
     return (
       <div>
-        <Nav />
-        { this.props.children }
-        { objects_html }
+        <Nav pages={ pages }/>
+        { Routes }
+        <Footer globals={ globals }/>
       </div>
-    )
+    );
   }
 }

@@ -17,6 +17,7 @@
     "lodash": "^3.10.1",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
+    "react-resolver": "^2.0.5",
     "react-router": "^1.0.0-rc3",
     "shorti": "^1.1.16",
     "webpack": "^1.12.2",

@@ -7,12 +7,16 @@ const AppDispatcher = new Dispatcher()
 // Register callback with AppDispatcher
 AppDispatcher.register((payload) => {
 
-  let action = payload.action
+  let action = payload.action;
 
   switch(action) {
 
     case 'init-app':
-      AppStore.init()
+      AppStore.init(payload)
+      break
+
+    case 'get-more-items':
+      AppStore.getMoreItems()
       break
 
     default:

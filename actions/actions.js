@@ -61,7 +61,7 @@ export function getObjects(Store, callback){
     // Emit change
     Store.data.ready = true;
     Store.emitChange();
-    callback();
+    callback(false, Store);
 
   });
 }

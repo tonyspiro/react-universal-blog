@@ -1,5 +1,6 @@
 // Work.jsx
 import React from 'react'
+import _ from 'lodash'
 
 // Utilities
 import AppStore from '../stores/AppStore';

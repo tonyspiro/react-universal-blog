@@ -24,15 +24,16 @@ class BlogList extends React.Component{
 
   render(){
     
-    let item_num = AppStore.data.item_num;
+    let data = this.props.data;
+    let item_num = data.item_num;
     let _this = this;
 
-    let articles = AppStore.data.articles;
+    let articles = data.articles;
 
     let load_more;
     let show_more_text = 'Show More Articles';
 
-    if(AppStore.data.loading){
+    if(data.loading){
       show_more_text = 'Loading...';
     }
 

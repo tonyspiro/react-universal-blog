@@ -23,14 +23,7 @@ export default class App extends Component {
   }
 
   constructor(){
-    
     super()
-    
-    // API data
-    AppDispatcher.dispatch({
-      action: 'init-app'
-    })
-
   }
 
   // Add change listeners to stores
@@ -43,13 +36,31 @@ export default class App extends Component {
     AppStore.removeChangeListener(this._onChange.bind(this))
   }
 
-  handleClick(e){
-    console.log(e.target.dataset.id)
+  getStoreBrowser(){
+
+    AppDispatcher.dispatch({
+      action: 'get-store-browser'
+    });
+
   }
 
   render(){
     
-    if(!AppStore.data.ready){
+    // Server first
+    let data = this.props.route.data
+    
+    if(!data){
+
+      // Browser next
+      data = AppStore.data
+
+    }
+
+    // Show loading for browser
+    if(!data.ready){
+
+      this.getStoreBrowser()
+
       let style = {
         marginTop: 120
       }
@@ -59,13 +70,11 @@ export default class App extends Component {
         </div>
       );
     }
-    let globals = AppStore.data.globals;
-    let pages = AppStore.data.pages;
 
-    // Pass this down!!!!
-    let data = AppStore.data;
+    let globals = data.globals;
+    let pages = data.pages;
     let Routes = React.cloneElement(this.props.children, { data: data });
-    
+
     return (
       <div>
         <Nav pages={ pages }/>

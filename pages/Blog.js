@@ -1,5 +1,6 @@
 // Home.jsx
 import React from 'react'
+import _ from 'lodash'
 
 // Utilities
 import AppStore from '../stores/AppStore';
@@ -14,7 +15,8 @@ class Blog extends React.Component{
 
   getPage(){
 
-    let pages = AppStore.data.pages;
+    let data = AppStore.data;
+    let pages = data.pages;
     let pages_object = _.indexBy(pages, 'slug');
     let page = pages_object['home'];
 
@@ -31,7 +33,7 @@ class Blog extends React.Component{
 
     if(!this.props.params.slug){
 
-      page.main_content = <BlogList/>;
+      page.main_content = <BlogList data={data}/>;
 
     } else {
 
@@ -44,10 +46,10 @@ class Blog extends React.Component{
 
   render(){
 
-    let globals = AppStore.data.globals;
-    let pages = AppStore.data.pages;
+    let data = AppStore.data;
+    let globals = data.globals;
+    let pages = data.pages;
     let page = this.getPage();
-
     return (
       <div>
         <Header globals={ globals } pages={ pages } page={ page }/>

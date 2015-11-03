@@ -61,78 +61,73 @@ if(constants.DEV){
 
   // Production mode
   app.get('*',(req, res) => {
+
+    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     
-    getObjects(AppStore, function(err, response){
+      let header = 
+        `<!DOCTYPE html>
+          <html lang="en">
 
-      console.log(response);
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="author" content="">
 
-      match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-      
-        let header = 
-          `<!DOCTYPE html>
-            <html lang="en">
+            <title>React Blog</title>
 
-            <head>
-              <meta charset="utf-8">
-              <meta http-equiv="X-UA-Compatible" content="IE=edge">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <meta name="description" content="">
-              <meta name="author" content="">
+            <!-- Bootstrap Core CSS -->
+            <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
 
-              <title>React Blog</title>
+            <!-- Custom CSS -->
+            <link href="/dist/css/clean-blog.min.css" rel="stylesheet">
+            <link href="/dist/css/cosmic-custom.css" rel="stylesheet">
 
-              <!-- Bootstrap Core CSS -->
-              <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Custom Fonts -->
+            <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-              <!-- Custom CSS -->
-              <link href="/dist/css/clean-blog.min.css" rel="stylesheet">
-              <link href="/dist/css/cosmic-custom.css" rel="stylesheet">
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+              <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+          </head>
 
-              <!-- Custom Fonts -->
-              <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-              <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-              <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+          <body>
 
-              <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-              <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-              <!--[if lt IE 9]>
-                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-                <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-              <![endif]-->
-            </head>
+            <div id="app">`
 
-            <body>
+      let body = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
+      let footer = 
 
-              <div id="app">`
+        `</div>
 
-        let body = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
-        let footer = 
+          <script src="/dist/js/jquery.min.js"></script>
 
-          `</div>
+          <script src="/dist/js/bootstrap.min.js"></script>
 
-            <script src="/dist/js/jquery.min.js"></script>
+          <script src="/dist/js/clean-blog.min.js"></script>
 
-            <script src="/dist/js/bootstrap.min.js"></script>
+          <script src="/dist/bundle.js"></script>
 
-            <script src="/dist/js/clean-blog.min.js"></script>
+        </body>
 
-            <script src="/dist/bundle.js"></script>
+        </html>`
+      let markup = header + body + footer
 
-          </body>
-
-          </html>`
-        let markup = header + body + footer
-
-        if (error) {
-          res.status(500).send(error.message)
-        } else if (redirectLocation) {
-          res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-        } else if (renderProps) {
-          res.status(200).send(markup)
-        } else {
-          res.status(404).send('Not found')
-        }
-      })
+      if (error) {
+        res.status(500).send(error.message)
+      } else if (redirectLocation) {
+        res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+      } else if (renderProps) {
+        res.status(200).send(markup)
+      } else {
+        res.status(404).send('Not found')
+      }
     })
   })
   

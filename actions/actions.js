@@ -127,7 +127,6 @@ export function getStoreServer(Store, callback){
 export function getMoreItems(Store){
   
   Store.data.loading = true;
-  console.log(Store.data.loading)
   Store.emitChange();
 
   setTimeout(function(){

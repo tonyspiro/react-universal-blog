@@ -37,11 +37,9 @@ export default class App extends Component {
   }
 
   getStoreBrowser(){
-
     AppDispatcher.dispatch({
       action: 'get-store-browser'
     });
-
   }
 
   render(){
@@ -50,7 +48,6 @@ export default class App extends Component {
     let data = this.props.route.data
     
     if(!data){
-
       // Browser next
       data = AppStore.data
 

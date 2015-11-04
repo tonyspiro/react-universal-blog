@@ -67,7 +67,6 @@ if(constants.DEV){
         let header = 
           `<!DOCTYPE html>
             <html lang="en">
-
             <head>
               <meta charset="utf-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,18 +94,15 @@ if(constants.DEV){
                 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
                 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
               <![endif]-->
+              <style>.hidden{ display: none; }</style>
             </head>
 
-            <body>
+            <body class="hidden">`
 
-              <div id="app">`
-
-        let body = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
-        let footer = 
-
-          `</div>
-
-            <script src="/dist/js/jquery.min.js"></script>
+        let body = `<div id="app">` + ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />) + `</div>`
+        
+        let footer =
+           `<script src="/dist/js/jquery.min.js"></script>
 
             <script src="/dist/js/bootstrap.min.js"></script>
 
@@ -114,9 +110,11 @@ if(constants.DEV){
 
             <script src="/dist/bundle.js"></script>
 
+            <script>$('body').removeClass('hidden');</script>
           </body>
 
           </html>`
+
         let markup = header + body + footer
 
         if (error) {

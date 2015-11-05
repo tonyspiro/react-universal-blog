@@ -44,7 +44,7 @@ if(constants.DEV){
     if (err) {
       console.log(err)
     } else {
-      console.log('Listening at localhost:3000 in development mode')
+      console.log('Listening at localhost:%s in development mode', app.get('port'))
     }
   })
 

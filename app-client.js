@@ -29,5 +29,4 @@ const routes = (
 )
 
 var app = document.getElementById('app')
-
 render(routes, app)

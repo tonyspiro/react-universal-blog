@@ -24,10 +24,6 @@ export default class App extends Component {
     this.setState(AppStore)
   }
 
-  constructor(){
-    super()
-  }
-
   // Add change listeners to stores
   componentDidMount() {
     AppStore.addChangeListener(this._onChange.bind(this))

@@ -25,9 +25,6 @@
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.12.1"
   },
-  "devDependencies": {
-    "react-hot-loader": "^1.3.0"
-  },
   "scripts": {
     "start": "npm run dev",
     "prod": "webpack -p && PROD=true babel-node app-deploy.js",

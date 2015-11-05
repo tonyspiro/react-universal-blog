@@ -8,13 +8,13 @@ const AppDispatcher = new Dispatcher()
 // Register callback with AppDispatcher
 AppDispatcher.register((payload) => {
 
-  let action = payload.action;
+  let action = payload.action
 
   switch(action) {
 
     case 'get-store-browser':
       getStoreBrowser(AppStore)
-      break;
+      break
 
     case 'get-more-items':
       getMoreItems(AppStore)

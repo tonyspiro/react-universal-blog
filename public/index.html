@@ -23,14 +23,16 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hidden">
-  <div id="app">
-    {{{ reactMarkup }}}
-  </div>
+<body class="hidden"><!-- "hidden" class added to prevent FOUC -->
+  <div id="app">{{{ reactMarkup }}}</div>
   <script src="/dist/js/jquery.min.js"></script>
   <script src="/dist/js/bootstrap.min.js"></script>
   <script src="/dist/js/clean-blog.min.js"></script>
   <script src="/dist/bundle.js"></script>
-  <script>$('body').removeClass('hidden');</script>
+  <script>
+  $(function(){
+    $('body').removeClass('hidden');
+  });
+  </script>
 </body>
 </html>

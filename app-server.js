@@ -1,5 +1,5 @@
 // app-server.js
-import React, { Component } from 'react'
+import React from 'react'
 import { match, RoutingContext, Route, IndexRoute, Link } from 'react-router'
 import ReactDOMServer from 'react-dom/server'
 import path from 'path'
@@ -23,13 +23,13 @@ import Work from './pages/Work'
 import Default from './pages/Default'
 import NoMatch from './pages/NoMatch'
 
+// Store
 import AppStore from './stores/AppStore'
 
 // Express
 const app = express()
 app.engine('html', hogan)
 app.set('views', __dirname + '/public')
-
 app.use('/dist', express.static(__dirname + '/public/dist'))
 
 if(constants.DEV){
@@ -56,13 +56,13 @@ if(constants.DEV){
       
       const routes = (
         <Route path="/" data={AppStore.data} component={App}>
-          <Route path="about" data={AppStore.data} component={Default}/>
-          <Route path="contact" data={AppStore.data} component={Default}/>
-          <Route path="work" data={AppStore.data} component={Work}/>
-          <Route path="/work/:slug" data={AppStore.data} component={Work}/>
-          <Route path="/blog/:slug" data={AppStore.data} component={Blog}/>
-          <IndexRoute data={AppStore.data} component={Blog}/>
-          <Route path="*" data={AppStore.data} component={NoMatch}/>
+          <Route path="about" component={Default}/>
+          <Route path="contact" component={Default}/>
+          <Route path="work" component={Work}/>
+          <Route path="/work/:slug" component={Work}/>
+          <Route path="/blog/:slug" component={Blog}/>
+          <IndexRoute component={Blog}/>
+          <Route path="*" component={NoMatch}/>
         </Route>
       )
 

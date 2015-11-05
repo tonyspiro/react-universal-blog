@@ -1,7 +1,7 @@
-// Loading.jsx
-import React from 'react';
+// Loading.js
+import React, { Component } from 'react'
 
-class Loading extends React.Component{
+class Loading extends Component {
   render(){
     return (
       <div className="sk-circle">
@@ -18,8 +18,8 @@ class Loading extends React.Component{
         <div className="sk-circle11 sk-child"></div>
         <div className="sk-circle12 sk-child"></div>
       </div>
-    );
+    )
   }
 }
 
-export default Loading;
+export default Loading

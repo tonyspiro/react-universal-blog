@@ -1,36 +1,35 @@
-// Nav.jsx
-import React from 'react';
-import { Link } from 'react-router';
+// Nav.js
+import React, { Component } from 'react'
+import { Link } from 'react-router'
 
-// Utilities
-import AppStore from '../stores/AppStore';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+// Store
+import AppStore from '../stores/AppStore'
 
-class Nav extends React.Component {
+class Nav extends Component {
 
   handleClick(){
-    $('.navbar-collapse').removeClass('in');
-    $('html,body').scrollTop(0);
+    $('.navbar-collapse').removeClass('in')
+    $('html,body').scrollTop(0)
   }
 
   render(){
     
-    let _this = this;
+    let _this = this
 
-    let pages = AppStore.data.pages;
-    let globals = AppStore.data.globals;
+    let pages = AppStore.data.pages
+    let globals = AppStore.data.globals
 
-    let page_link;
+    let page_link
 
     let menu_items = pages.map(( page ) => {
       
       if(page.slug == 'home'){
       
-        page_link = '';
+        page_link = ''
       
       } else {
       
-        page_link = page.slug;
+        page_link = page.slug
 
       }
 
@@ -38,8 +37,8 @@ class Nav extends React.Component {
         <li key={ 'key-' + page.slug }>
           <Link onClick={ _this.handleClick } to={ '/' + page_link }>{ page.title }</Link>
         </li>
-      );
-    });
+      )
+    })
 
     return (
       <nav className="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -61,8 +60,8 @@ class Nav extends React.Component {
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
 
-export default Nav;
+export default Nav

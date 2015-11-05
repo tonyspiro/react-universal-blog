@@ -1,20 +1,22 @@
-// Header.jsx
-import React from 'react';
-import Nav from './Nav';
-import AppStore from '../stores/AppStore';
+// Header.js
+import React, { Component } from 'react'
+import Nav from './Nav'
 
-class Header extends React.Component {
+// Store
+import AppStore from '../stores/AppStore'
+
+class Header extends Component {
 
   render(){
     
-    let hero;
-    let headline;
-    let subheadline;
+    let hero
+    let headline
+    let subheadline
 
     if(this.props.page){
-      hero = this.props.page.hero;
-      headline = this.props.page.headline;
-      subheadline = this.props.page.subheadline;
+      hero = this.props.page.hero
+      headline = this.props.page.headline
+      subheadline = this.props.page.subheadline
     }
 
     return (
@@ -34,8 +36,8 @@ class Header extends React.Component {
           </div>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

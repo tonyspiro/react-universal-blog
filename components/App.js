@@ -1,9 +1,11 @@
 // AppClient.js
 import React, { Component } from 'react'
 
-// Utilities
-import AppStore from '../stores/AppStore'
+// Dispatcher
 import AppDispatcher from '../dispatcher/AppDispatcher'
+
+// Store
+import AppStore from '../stores/AppStore'
 
 // Components
 import Nav from './Nav'
@@ -39,7 +41,7 @@ export default class App extends Component {
   getStoreBrowser(){
     AppDispatcher.dispatch({
       action: 'get-store-browser'
-    });
+    })
   }
 
   render(){
@@ -65,12 +67,12 @@ export default class App extends Component {
         <div className="container text-center" style={ style }>
           <Loading />
         </div>
-      );
+      )
     }
 
-    let globals = data.globals;
-    let pages = data.pages;
-    let Routes = React.cloneElement(this.props.children, { data: data });
+    let globals = data.globals
+    let pages = data.pages
+    let Routes = React.cloneElement(this.props.children, { data: data })
 
     return (
       <div>
@@ -78,6 +80,6 @@ export default class App extends Component {
         { Routes }
         <Footer globals={ globals }/>
       </div>
-    );
+    )
   }
 }

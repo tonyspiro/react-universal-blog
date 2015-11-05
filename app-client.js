@@ -1,5 +1,5 @@
 // app-client.js
-import React, { Component } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, Link } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory'

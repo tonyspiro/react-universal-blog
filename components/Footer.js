@@ -1,22 +1,22 @@
-// Footer.jsx
-import React from 'react';
+// Footer.js
+import React, { Component } from 'react'
 
-class Footer extends React.Component {
+class Footer extends Component {
 
   render(){
       
-    let footer_text;
+    let footer_text
     if(this.props.globals.text){
-      footer_text = this.props.globals.text.footer_text;
+      footer_text = this.props.globals.text.footer_text
     }
 
-    let twitter;
-    let facebook;
-    let github;
+    let twitter
+    let facebook
+    let github
     if(this.props.globals.social){
-      twitter = this.props.globals.social.twitter;
-      facebook = this.props.globals.social.facebook;
-      github = this.props.globals.social.github;
+      twitter = this.props.globals.social.twitter
+      facebook = this.props.globals.social.facebook
+      github = this.props.globals.social.github
     }
 
     return (
@@ -55,8 +55,8 @@ class Footer extends React.Component {
           </div>
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

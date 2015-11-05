@@ -1,55 +1,54 @@
-// Home.jsx
-import React from 'react'
+// Blog.js
+import React, { Component } from 'react'
 import _ from 'lodash'
 
-// Utilities
-import AppStore from '../stores/AppStore';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+// Store
+import AppStore from '../stores/AppStore'
 
 // Components
-import Header from '../components/Header';
-import BlogList from '../components/BlogList';
-import BlogSingle from '../components/BlogSingle';
+import Header from '../components/Header'
+import BlogList from '../components/BlogList'
+import BlogSingle from '../components/BlogSingle'
 
-class Blog extends React.Component{
+class Blog extends Component {
 
   getPage(){
 
-    let data = AppStore.data;
-    let pages = data.pages;
-    let pages_object = _.indexBy(pages, 'slug');
-    let page = pages_object['home'];
+    let data = AppStore.data
+    let pages = data.pages
+    let pages_object = _.indexBy(pages, 'slug')
+    let page = pages_object['home']
 
     // Get page info 
-    let metafields = page.metafields;
-    let hero = _.findWhere(metafields, { key: 'hero' });
-    page.hero = 'https://cosmicjs.com/uploads/' + hero.value;
+    let metafields = page.metafields
+    let hero = _.findWhere(metafields, { key: 'hero' })
+    page.hero = 'https://cosmicjs.com/uploads/' + hero.value
 
-    let headline = _.findWhere(metafields, { key: 'headline' });
-    page.headline = headline.value;
+    let headline = _.findWhere(metafields, { key: 'headline' })
+    page.headline = headline.value
 
-    let subheadline = _.findWhere(metafields, { key: 'subheadline' });
-    page.subheadline = subheadline.value;
+    let subheadline = _.findWhere(metafields, { key: 'subheadline' })
+    page.subheadline = subheadline.value
 
     if(!this.props.params.slug){
 
-      page.main_content = <BlogList data={data}/>;
+      page.main_content = <BlogList data={data}/>
 
     } else {
 
-      page.main_content = <BlogSingle slug={ this.props.params.slug }/>;
+      page.main_content = <BlogSingle slug={ this.props.params.slug }/>
 
     }
 
-    return page;
+    return page
   }
 
   render(){
 
-    let data = AppStore.data;
-    let globals = data.globals;
-    let pages = data.pages;
-    let page = this.getPage();
+    let data = AppStore.data
+    let globals = data.globals
+    let pages = data.pages
+    let page = this.getPage()
     return (
       <div>
         <Header globals={ globals } pages={ pages } page={ page }/>
@@ -61,8 +60,8 @@ class Blog extends React.Component{
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Blog;
+export default Blog

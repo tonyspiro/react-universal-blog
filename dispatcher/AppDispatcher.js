@@ -1,7 +1,7 @@
 // AppDispatcher.js
 import {Dispatcher} from 'flux'
 import AppStore from '../stores/AppStore'
-import { getStoreBrowser, getMoreItems } from '../actions/actions'
+import { getStore, getMoreItems } from '../actions/actions'
 
 const AppDispatcher = new Dispatcher()
 
@@ -12,8 +12,8 @@ AppDispatcher.register((payload) => {
 
   switch(action) {
 
-    case 'get-store-browser':
-      getStoreBrowser(AppStore)
+    case 'get-store':
+      getStore(AppStore)
       break
 
     case 'get-more-items':

@@ -12,7 +12,7 @@ import config from './webpack.config.js'
 import constants from './config/constants'
 
 // Actions
-import { getStoreServer } from './actions/actions'
+import { getStore } from './actions/actions'
 
 // Main component
 import App from './components/App'
@@ -53,7 +53,7 @@ if(constants.DEV){
   // Production mode
   app.get('*',(req, res) => {
 
-    getStoreServer(AppStore, function(err, Store){
+    getStore(AppStore, function(err, Store){
       
       const routes = (
         <Route path="/" data={AppStore.data} component={App}>

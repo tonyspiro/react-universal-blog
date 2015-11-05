@@ -1,11 +1,12 @@
 // actions.js
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
+
 import config from '../config/cosmicjs'
 import Cosmic from 'cosmicjs'
 import _ from 'lodash'
 
-export function getStoreBrowser(Store){
+export function getStore(Store, callback){
   
   let pages = {}
 
@@ -63,62 +64,10 @@ export function getStoreBrowser(Store){
     Store.data.ready = true
     Store.emitChange()
 
-  })
-}
-
-export function getStoreServer(Store, callback){
-
-  Cosmic.getObjects(config, function(err, response){
-    
-    let objects = response.objects
-    
-    /* Globals
-    ======================== */
-    let globals = Store.data.globals
-    globals.text = response.object['text']
-    let metafields = globals.text.metafields
-    let menu_title = _.findWhere(metafields, { key: 'menu-title' })
-    globals.text.menu_title = menu_title.value
-
-    let footer_text = _.findWhere(metafields, { key: 'footer-text' })
-    globals.text.footer_text = footer_text.value
-
-    let site_title = _.findWhere(metafields, { key: 'site-title' })
-    globals.text.site_title = site_title.value
-
-    // Social
-    globals.social = response.object['social']
-    metafields = globals.social.metafields
-    let twitter = _.findWhere(metafields, { key: 'twitter' })
-    globals.social.twitter = twitter.value
-    let facebook = _.findWhere(metafields, { key: 'facebook' })
-    globals.social.facebook = facebook.value
-    let github = _.findWhere(metafields, { key: 'github' })
-    globals.social.github = github.value
-
-    Store.data.globals = globals
-
-    /* Pages
-    ======================== */
-    let pages = objects.type.page
-    Store.data.pages = pages
-
-    /* Articles
-    ======================== */
-    let articles = objects.type['post']
-    articles = _.sortBy(articles, 'order')
-    Store.data.articles = articles
-
-    /* Work Items
-    ======================== */
-    let work_items = objects.type['work']
-    work_items = _.sortBy(work_items, 'order')
-    Store.data.work_items = work_items
-    
-    // Emit change
-    Store.data.ready = true
-    Store.emitChange()
-    callback(false, Store)
+    // Trigger callback (from server)
+    if(callback){
+      callback(false, Store)
+    }
 
   })
 }

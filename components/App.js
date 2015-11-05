@@ -38,9 +38,9 @@ export default class App extends Component {
     AppStore.removeChangeListener(this._onChange.bind(this))
   }
 
-  getStoreBrowser(){
+  getStore(){
     AppDispatcher.dispatch({
-      action: 'get-store-browser'
+      action: 'get-store'
     })
   }
 
@@ -58,7 +58,7 @@ export default class App extends Component {
     // Show loading for browser
     if(!data.ready){
 
-      this.getStoreBrowser()
+      this.getStore()
 
       let style = {
         marginTop: 120

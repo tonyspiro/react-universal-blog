@@ -88,6 +88,6 @@ if(constants.DEV){
   })
   
   app.listen(app.get('port'))
-  console.log('Listening at localhost:%s in production mode', config.port.prod)
+  console.log('Listening at localhost:%s in production mode', app.get('port'))
 
 }

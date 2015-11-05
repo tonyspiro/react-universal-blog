@@ -26,7 +26,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "scripts": {
-    "start": "node app-deploy.js",
+    "start": "npm run prod",
     "prod": "webpack -p && PROD=true babel-node app-deploy.js",
     "dev": "webpack && DEV=true webpack-dev-server --content-base public/"
   },

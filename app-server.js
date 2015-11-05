@@ -4,6 +4,7 @@ import { match, RoutingContext, Route, IndexRoute, Link } from 'react-router'
 import ReactDOMServer from 'react-dom/server'
 import path from 'path'
 import express from 'express'
+import hogan from 'hogan-express'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import WebpackDevServer from 'webpack-dev-server'
@@ -26,6 +27,9 @@ import AppStore from './stores/AppStore'
 
 // Express
 const app = express()
+app.engine('html', hogan)
+app.set('views', __dirname + '/public')
+
 app.use('/dist', express.static(__dirname + '/public/dist'))
 
 if(constants.DEV){
@@ -35,13 +39,13 @@ if(constants.DEV){
   new WebpackDevServer(compiler, {
     hot: true,
     historyApiFallback: true
-  }).listen(3000, 'localhost',(err, result) => {
+  }).listen(config.port.prod, 'localhost',(err, result) => {
     if (err) {
       console.log(err)
     } else {
       console.log('Listening at localhost:3000 in development mode')
     }
-  });
+  })
 
 } else {
 
@@ -64,74 +68,25 @@ if(constants.DEV){
 
       match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
       
-        let header = 
-          `<!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <meta charset="utf-8">
-              <meta http-equiv="X-UA-Compatible" content="IE=edge">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <meta name="description" content="">
-              <meta name="author" content="">
-
-              <title>React Blog</title>
-
-              <!-- Bootstrap Core CSS -->
-              <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
-
-              <!-- Custom CSS -->
-              <link href="/dist/css/clean-blog.min.css" rel="stylesheet">
-              <link href="/dist/css/cosmic-custom.css" rel="stylesheet">
-
-              <!-- Custom Fonts -->
-              <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-              <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-              <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-              <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-              <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-              <!--[if lt IE 9]>
-                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-                <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-              <![endif]-->
-              <style>.hidden{ display: none; }</style>
-            </head>
-
-            <body class="hidden">`
-
-        let body = `<div id="app">` + ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />) + `</div>`
+        let reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
         
-        let footer =
-           `<script src="/dist/js/jquery.min.js"></script>
-
-            <script src="/dist/js/bootstrap.min.js"></script>
-
-            <script src="/dist/js/clean-blog.min.js"></script>
-
-            <script src="/dist/bundle.js"></script>
-
-            <script>$('body').removeClass('hidden');</script>
-          </body>
-
-          </html>`
-
-        let markup = header + body + footer
+        res.locals.reactMarkup = reactMarkup
 
         if (error) {
           res.status(500).send(error.message)
         } else if (redirectLocation) {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search)
         } else if (renderProps) {
-          res.status(200).send(markup)
+          res.status(200).render('index.html')
         } else {
-          res.status(404).send('Not found')
+          res.status(404).render('index.html')
         }
       })
 
     })
   })
   
-  app.listen(3000)
-  console.log('Listening at localhost:3000 in production mode')
+  app.listen(config.port.prod)
+  console.log('Listening at localhost:%s in production mode', config.port.prod)
 
 }

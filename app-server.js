@@ -31,6 +31,7 @@ const app = express()
 app.engine('html', hogan)
 app.set('views', __dirname + '/public')
 app.use('/dist', express.static(__dirname + '/public/dist'))
+app.set('port', (process.env.PORT || 3000))
 
 if(constants.DEV){
 
@@ -39,7 +40,7 @@ if(constants.DEV){
   new WebpackDevServer(compiler, {
     hot: true,
     historyApiFallback: true
-  }).listen(config.port.prod, 'localhost',(err, result) => {
+  }).listen(app.get('port'), 'localhost',(err, result) => {
     if (err) {
       console.log(err)
     } else {
@@ -86,7 +87,7 @@ if(constants.DEV){
     })
   })
   
-  app.listen(config.port.prod)
+  app.listen(app.get('port'))
   console.log('Listening at localhost:%s in production mode', config.port.prod)
 
 }

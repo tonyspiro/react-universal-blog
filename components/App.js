@@ -47,8 +47,8 @@ export default class App extends Component {
     
     if(!data){
       // Browser next
+      // Doing this because I don't want all of the content in a pile of JS mush on the page
       data = AppStore.data
-
     }
 
     // Show loading for browser

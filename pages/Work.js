@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 // Components
 import Header from '../components/Header'
 import WorkList from '../components/WorkList'
@@ -14,7 +11,7 @@ export default class Work extends Component {
 
   getPage(){
 
-    let pages = AppStore.data.pages
+    let pages = this.props.data.pages
     let pages_object = _.indexBy(pages, 'slug')
     let page = pages_object['work']
 
@@ -43,8 +40,9 @@ export default class Work extends Component {
 
   render(){
 
-    let globals = AppStore.data.globals
-    let pages = AppStore.data.pages
+    let data = this.props.data
+    let globals = data.globals
+    let pages = data.pages
     let page = this.getPage()
 
     return (

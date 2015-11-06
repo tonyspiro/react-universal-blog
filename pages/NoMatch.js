@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import _ from 'lodash'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 // Components
 import Header from '../components/Header'
 import BlogList from '../components/BlogList'
@@ -14,7 +11,7 @@ export default class Home extends Component {
 
   getPage(){
 
-    let pages = AppStore.data.pages
+    let pages = this.props.data.pages
 
     // Get home page info
     let pages_object = _.indexBy(pages, 'slug')
@@ -36,8 +33,9 @@ export default class Home extends Component {
   
   render(){
     
-    let globals = AppStore.data.globals
-    let pages = AppStore.data.pages
+    let data = this.props.data
+    let globals = data.globals
+    let pages = data.pages
     let page = this.getPage()
 
     return (

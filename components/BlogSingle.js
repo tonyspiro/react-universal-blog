@@ -3,14 +3,11 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 export default class BlogSingle extends Component {
   
   render(){
     
-    let articles = AppStore.data.articles
+    let articles = this.props.data.articles
 
     // Get current page slug
     let slug = this.props.slug

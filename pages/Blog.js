@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 // Components
 import Header from '../components/Header'
 import BlogList from '../components/BlogList'
@@ -14,7 +11,7 @@ export default class Blog extends Component {
 
   getPage(){
 
-    let data = AppStore.data
+    let data = this.props.data
     let pages = data.pages
     let pages_object = _.indexBy(pages, 'slug')
     let page = pages_object['home']
@@ -36,7 +33,7 @@ export default class Blog extends Component {
 
     } else {
 
-      page.main_content = <BlogSingle slug={ this.props.params.slug }/>
+      page.main_content = <BlogSingle data={data} slug={ this.props.params.slug }/>
 
     }
 
@@ -45,7 +42,7 @@ export default class Blog extends Component {
 
   render(){
 
-    let data = AppStore.data
+    let data = this.props.data
     let globals = data.globals
     let pages = data.pages
     let page = this.getPage()

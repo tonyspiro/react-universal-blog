@@ -6,9 +6,6 @@ import { Link } from 'react-router'
 // Dispatcher
 import AppDispatcher from '../dispatcher/AppDispatcher'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 export default class BlogList extends Component {
 
   scrollTop(){

@@ -10,7 +10,7 @@ import Header from '../components/Header'
 import WorkList from '../components/WorkList'
 import WorkSingle from '../components/WorkSingle'
 
-class Work extends Component {
+export default class Work extends Component {
 
   getPage(){
 
@@ -61,5 +61,3 @@ class Work extends Component {
     )
   }
 }
-
-export default Work

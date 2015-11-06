@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 // Store
 import AppStore from '../stores/AppStore'
 
-class Nav extends Component {
+export default class Nav extends Component {
 
   handleClick(){
     $('.navbar-collapse').removeClass('in')
@@ -63,5 +63,3 @@ class Nav extends Component {
     )
   }
 }
-
-export default Nav

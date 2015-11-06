@@ -10,7 +10,7 @@ import Header from '../components/Header'
 import BlogList from '../components/BlogList'
 import BlogSingle from '../components/BlogSingle'
 
-class Blog extends Component {
+export default class Blog extends Component {
 
   getPage(){
 
@@ -63,5 +63,3 @@ class Blog extends Component {
     )
   }
 }
-
-export default Blog

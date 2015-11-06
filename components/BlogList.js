@@ -9,7 +9,7 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 // Store
 import AppStore from '../stores/AppStore'
 
-class BlogList extends Component {
+export default class BlogList extends Component {
 
   scrollTop(){
     $('html, body').animate({
@@ -74,5 +74,3 @@ class BlogList extends Component {
     )
   }
 }
-
-export default BlogList

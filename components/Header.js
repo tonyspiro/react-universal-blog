@@ -5,7 +5,7 @@ import Nav from './Nav'
 // Store
 import AppStore from '../stores/AppStore'
 
-class Header extends Component {
+export default class Header extends Component {
 
   render(){
     
@@ -39,5 +39,3 @@ class Header extends Component {
     )
   }
 }
-
-export default Header

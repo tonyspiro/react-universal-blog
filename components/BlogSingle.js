@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 // Store
 import AppStore from '../stores/AppStore'
 
-class BlogSingle extends Component {
+export default class BlogSingle extends Component {
   
   render(){
     
@@ -30,5 +30,3 @@ class BlogSingle extends Component {
     )
   }
 }
-
-export default BlogSingle

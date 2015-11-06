@@ -1,7 +1,4 @@
 // actions.js
-require('es6-promise').polyfill()
-require('isomorphic-fetch')
-
 import config from '../config/cosmicjs'
 import Cosmic from 'cosmicjs'
 import _ from 'lodash'

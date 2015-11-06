@@ -10,7 +10,7 @@ import AppStore from '../stores/AppStore'
 import Header from '../components/Header'
 import BlogList from '../components/BlogList'
 
-class Home extends Component {
+export default class Home extends Component {
 
   getPage(){
 
@@ -59,5 +59,3 @@ class Home extends Component {
     )
   }
 }
-
-export default Home

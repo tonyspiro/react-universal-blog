@@ -12,7 +12,7 @@ AppDispatcher.register((payload) => {
 
   switch(action) {
 
-    case 'get-store':
+    case 'get-app-store':
       getStore(AppStore)
       break
 

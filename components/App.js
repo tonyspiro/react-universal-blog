@@ -36,7 +36,7 @@ export default class App extends Component {
 
   getStore(){
     AppDispatcher.dispatch({
-      action: 'get-store'
+      action: 'get-app-store'
     })
   }
 

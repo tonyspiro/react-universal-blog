@@ -79,7 +79,6 @@ export function getMoreItems(Store){
     let more_item_num = item_num + 5
     Store.data.item_num = more_item_num
     Store.data.loading = false
-    console.log(Store.data.loading)
     Store.emitChange()
   }, 300)
 }

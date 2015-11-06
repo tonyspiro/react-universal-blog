@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, Link } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
-let history = createBrowserHistory()
+const history = createBrowserHistory()
 
 // Main component
 import App from './components/App'
@@ -28,5 +28,5 @@ const routes = (
   </Router>
 )
 
-var app = document.getElementById('app')
+const app = document.getElementById('app')
 render(routes, app)

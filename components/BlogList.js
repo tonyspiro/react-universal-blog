@@ -59,7 +59,7 @@ class BlogList extends Component {
             <h2 className="post-title pointer">
               <Link to={ '/blog/' + article.slug } onClick={ this.scrollTop }>{ article.title }</Link>
             </h2>
-            <p className="post-meta">Posted by <a href="http://tonyspiro.com" target="_blank">Tony Spiro</a> on { created }</p>
+            <p className="post-meta">Posted by <a href="https://cosmicjs.com" target="_blank">Cosmic JS</a> on { created }</p>
           </div>
           <hr/>
         </div>

@@ -54,7 +54,10 @@ app.get('*',(req, res) => {
       } else if (redirectLocation) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
       } else if (renderProps) {
+        
+        // Success!
         res.status(200).render('index.html')
+      
       } else {
         res.status(404).render('index.html')
       }

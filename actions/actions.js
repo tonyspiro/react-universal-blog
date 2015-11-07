@@ -1,5 +1,5 @@
 // actions.js
-import config from '../config/cosmicjs'
+import config from '../config'
 import Cosmic from 'cosmicjs'
 import _ from 'lodash'
 

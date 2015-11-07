@@ -23,8 +23,8 @@
   },
   "scripts": {
     "start": "npm run prod",
-    "prod": "webpack -p && PROD=true node app-deploy.js",
-    "dev": "webpack && DEV=true webpack-dev-server --content-base public/"
+    "prod": "webpack -p && node app-deploy.js",
+    "dev": "webpack && webpack-dev-server --content-base public/"
   },
   "author": "",
   "license": "ISC"

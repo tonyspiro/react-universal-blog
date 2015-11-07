@@ -3,14 +3,11 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router'
 
-// Store
-import AppStore from '../stores/AppStore'
-
-class WorkSingle extends Component {
+export default class WorkSingle extends Component {
   
   render(){
     
-    let work_items = AppStore.data.work_items
+    let work_items = this.props.data.work_items
 
     // Get current page slug
     let slug = this.props.slug
@@ -30,5 +27,3 @@ class WorkSingle extends Component {
     )
   }
 }
-
-export default WorkSingle

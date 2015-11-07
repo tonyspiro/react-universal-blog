@@ -1,19 +1,21 @@
-// Work.js
+// Default.js
 import React, { Component } from 'react'
 import _ from 'lodash'
 
 // Components
-import Header from '../components/Header'
-import WorkList from '../components/WorkList'
-import WorkSingle from '../components/WorkSingle'
+import Header from '../partials/Header'
+import BlogList from '../partials/BlogList'
 
-export default class Work extends Component {
+export default class Home extends Component {
 
   getPage(){
 
     let pages = this.props.data.pages
+
+    // Get current page slug
+    let current_slug = this.props.route.path
     let pages_object = _.indexBy(pages, 'slug')
-    let page = pages_object['work']
+    let page = pages_object[current_slug]
 
     // Get page info 
     let metafields = page.metafields
@@ -25,16 +27,8 @@ export default class Work extends Component {
 
     let subheadline = _.findWhere(metafields, { key: 'subheadline' })
     page.subheadline = subheadline.value
+    page.main_content = <div dangerouslySetInnerHTML={ {__html: page.content } }></div>
 
-    if(!this.props.params.slug){
-
-      page.main_content = <WorkList/>
-
-    } else {
-
-     page.main_content = <WorkSingle slug={ this.props.params.slug }/>
-
-    }
     return page
   }
 
@@ -48,11 +42,11 @@ export default class Work extends Component {
     return (
       <div>
         <Header globals={ globals } pages={ pages } page={ page }/>
-          <div id="main-content" className="container">
-            <div className="row">
-              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              { page.main_content }
-              </div>
+        <div id="main-content" className="container">
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            { page.main_content }
+            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 export default class Header extends Component {
 
   render(){

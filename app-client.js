@@ -8,11 +8,11 @@ const history = createBrowserHistory()
 // Main component
 import App from './components/App'
 
-// Pages
-import Blog from './pages/Blog'
-import Work from './pages/Work'
-import Default from './pages/Default'
-import NoMatch from './pages/NoMatch'
+// Routes
+import Blog from './components/routes/Blog'
+import Work from './components/routes/Work'
+import Default from './components/routes/Default'
+import NoMatch from './components/routes/NoMatch'
 
 const routes = (
   <Router history={history}>

@@ -8,15 +8,15 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import AppStore from '../stores/AppStore'
 
 // Components
-import Nav from './Nav'
-import Footer from './Footer'
-import Loading from './Loading'
+import Nav from './partials/Nav'
+import Footer from './partials/Footer'
+import Loading from './partials/Loading'
 
 // Pages
-import Blog from '../pages/Blog'
-import Work from '../pages/Work'
-import Default from '../pages/Default'
-import NoMatch from '../pages/NoMatch'
+import Blog from './routes/Blog'
+import Work from './routes/Work'
+import Default from './routes/Default'
+import NoMatch from './routes/NoMatch'
 
 export default class App extends Component {
   
@@ -72,7 +72,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <Nav pages={ pages }/>
+        <Nav pages={ pages } globals={ globals }/>
         { Routes }
         <Footer globals={ globals }/>
       </div>

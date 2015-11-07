@@ -1,10 +1,11 @@
-// Default.js
+// NoMatch.js
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import _ from 'lodash'
 
 // Components
-import Header from '../components/Header'
-import BlogList from '../components/BlogList'
+import Header from '../partials/Header'
+import BlogList from '../partials/BlogList'
 
 export default class Home extends Component {
 
@@ -12,28 +13,26 @@ export default class Home extends Component {
 
     let pages = this.props.data.pages
 
-    // Get current page slug
-    let current_slug = this.props.route.path
+    // Get home page info
     let pages_object = _.indexBy(pages, 'slug')
-    let page = pages_object[current_slug]
-
+    let page = pages_object['home']
+    
     // Get page info 
     let metafields = page.metafields
     let hero = _.findWhere(metafields, { key: 'hero' })
     page.hero = 'https://cosmicjs.com/uploads/' + hero.value
-
+    
     let headline = _.findWhere(metafields, { key: 'headline' })
     page.headline = headline.value
 
     let subheadline = _.findWhere(metafields, { key: 'subheadline' })
     page.subheadline = subheadline.value
-    page.main_content = <div dangerouslySetInnerHTML={ {__html: page.content } }></div>
-
+    
     return page
   }
-
+  
   render(){
-
+    
     let data = this.props.data
     let globals = data.globals
     let pages = data.pages
@@ -45,7 +44,12 @@ export default class Home extends Component {
         <div id="main-content" className="container">
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            { page.main_content }
+              <div className="text-center">
+                Whoa!  Looks like you stumbled down a worm hole!
+                <br/>
+                <br/>
+                <Link to="/">Take me home</Link>
+              </div>
             </div>
           </div>
         </div>

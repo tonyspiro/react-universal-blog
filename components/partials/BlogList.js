@@ -1,15 +1,12 @@
-// WorkList.js
+// BlogList.js
 import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router'
 
 // Dispatcher
-import AppDispatcher from '../dispatcher/AppDispatcher'
+import AppDispatcher from '../../dispatcher/AppDispatcher'
 
-// Store
-import AppStore from '../stores/AppStore'
-
-class WorkList extends Component {
+export default class BlogList extends Component {
 
   scrollTop(){
     $('html, body').animate({
@@ -17,48 +14,47 @@ class WorkList extends Component {
     }, 500)
   }
 
-  getMoreWorkItems(){
-
+  getMoreArticles(){
     AppDispatcher.dispatch({
       action: 'get-more-items'
     })
-
   }
 
   render(){
     
-    let item_num = AppStore.data.item_num
+    let data = this.props.data
+    let item_num = data.item_num
     let _this = this
 
-    let work_items = AppStore.data.work_items
+    let articles = data.articles
 
     let load_more
-    let show_more_text = 'Show More Work'
+    let show_more_text = 'Show More Articles'
 
-    if(AppStore.data.loading){
+    if(data.loading){
       show_more_text = 'Loading...'
     }
 
-    if(work_items && item_num <= work_items.length){
+    if(articles && item_num <= articles.length){
       load_more = (
         <div>
-          <button className="btn btn-default center-block" onClick={ this.getMoreWorkItems }>
+          <button className="btn btn-default center-block" onClick={ this.getMoreArticles }>
             { show_more_text }
           </button>
         </div>
       )
     }
 
-    work_items = _.take(work_items, item_num)
+    articles = _.take(articles, item_num)
     
-    let articles_html = work_items.map(( work_item ) => {
-      let date_obj = new Date(work_item.created)
+    let articles_html = articles.map(( article ) => {
+      let date_obj = new Date(article.created)
       let created = (date_obj.getMonth()+1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
       return (
-        <div key={ 'key-' + work_item.slug }>
+        <div key={ 'key-' + article.slug }>
           <div className="post-preview">
             <h2 className="post-title pointer">
-              <Link to={ '/work/' + work_item.slug } onClick={ this.scrollTop }>{ work_item.title }</Link>
+              <Link to={ '/blog/' + article.slug } onClick={ this.scrollTop }>{ article.title }</Link>
             </h2>
             <p className="post-meta">Posted by <a href="https://cosmicjs.com" target="_blank">Cosmic JS</a> on { created }</p>
           </div>
@@ -75,5 +71,3 @@ class WorkList extends Component {
     )
   }
 }
-
-export default WorkList

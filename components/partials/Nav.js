@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-// Store
-import AppStore from '../stores/AppStore'
-
 export default class Nav extends Component {
 
   handleClick(){
@@ -15,9 +12,13 @@ export default class Nav extends Component {
   render(){
     
     let _this = this
-
-    let pages = AppStore.data.pages
-    let globals = AppStore.data.globals
+    let pages = this.props.pages
+    let globals = this.props.globals
+    
+    // Prevent initial null
+    if(!pages){
+      return <div></div>
+    }
 
     let page_link
 

@@ -4,10 +4,10 @@ This React Universal Blog lets you have your cake and eat it too... it renders h
 
 It uses the following:
 <br>
-1. [React](http://facebook.github.io/react/) - UI views<br>
-2. [React Router](https://github.com/rackt/react-router) - Routing<br>
-3. [Flux](https://facebook.github.io/flux/) - Data flow<br>
-4. [Cosmic JS](https://cosmicjs.com) - Content management
+1. [React](http://facebook.github.io/react/) for UI views<br>
+2. [React Router](https://github.com/rackt/react-router) for routing<br>
+3. [Flux](https://facebook.github.io/flux/) for data flow<br>
+4. [Cosmic JS](https://cosmicjs.com) for content management
 #####Install
 ```
 git clone https://github.com/tonyspiro/react-universal-blog

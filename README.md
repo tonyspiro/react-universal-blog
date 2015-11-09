@@ -6,8 +6,11 @@ This app demonstrates how to build a blog that satisfies the following:
 
 The app uses the following:
 1. React - UI views
+
 2. React Router - Routing
+
 3. Flux - Data flow
+
 4. Cosmic JS - Content management
 #####Install
 ```

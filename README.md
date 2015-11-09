@@ -12,6 +12,6 @@ npm run dev
 Go to [http://localhost:8080/webpack-dev-server](http://localhost:8080/webpack-dev-server)
 #####Run production
 ```
-npm run dev
+npm run prod
 ```
 Go to [http://localhost:3000](http://localhost:3000)

@@ -1,17 +1,15 @@
 #React Universal Blog
 #####About
 This app demonstrates how to build a blog that satisfies the following:
-1. Renders html on the server side to make it SEO friendly.
+<br>
+1. Renders html on the server side to make it SEO friendly.<br>
 2. Creates a single page application after initial render to allow for fast navigation between pages.
 
-The app uses the following:
+It uses the following:
 <br>
-1. [React](http://facebook.github.io/react/) - UI views
-<br>
-2. [React Router](https://github.com/rackt/react-router) - Routing
-<br>
-3. [Flux](https://facebook.github.io/flux/) - Data flow
-<br>
+1. [React](http://facebook.github.io/react/) - UI views<br>
+2. [React Router](https://github.com/rackt/react-router) - Routing<br>
+3. [Flux](https://facebook.github.io/flux/) - Data flow<br>
 4. [Cosmic JS](https://cosmicjs.com) - Content management
 #####Install
 ```

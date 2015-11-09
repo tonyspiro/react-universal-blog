@@ -3,7 +3,7 @@
 #####[Go to Cosmic JS to set up a bucket for your blog content](https://cosmicjs.com/)
 
 #####About
-The React Universal Blog is a portfolio blog app that renders html on the server side to make it SEO friendly and then creates a single page application to allow for fast navigation between pages.
+The React Universal Blog is a portfolio blog app that renders html on the server side making the blog and all pages visible to search engines. After initial load from the server, it then the browser side takes over and converts the app into a single page application to allow for fast navigation between pages.
 
 It uses the following:
 <br>

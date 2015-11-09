@@ -1,17 +1,4 @@
 #React Universal Blog
-
-####Get Started
-In ```config.js``` set your bucket slug:
-```javascript
-// config.js
-export default {
-  bucket: {
-    slug: 'react-universal-blog',
-    read_key: '',
-    write_key: ''
-  }
-}
-```
 #####Install
 Install with the following commands:
 ```

@@ -1,6 +1,5 @@
 #React Universal Blog
 #####Install
-Install with the following commands:
 ```
 git clone https://github.com/tonyspiro/react-universal-blog
 cd react-universal-blog

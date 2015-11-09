@@ -12,7 +12,7 @@ export default {
   }
 }
 ```
-Install all dependencies with the following commands:
+Install with the following commands:
 ```
 git clone https://github.com/tonyspiro/react-universal-blog
 cd react-universal-blog

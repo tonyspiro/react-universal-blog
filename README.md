@@ -1,9 +1,6 @@
 #React Universal Blog
 #####About
-This app demonstrates how to build a blog that satisfies the following:
-<br>
-1. Renders html on the server side to make it SEO friendly.<br>
-2. Creates a single page application after initial render to allow for fast navigation between pages.
+This React Universal Blog lets you have your cake and eat it too... it renders html on the server side to make it SEO friendly and also creates a single page application after initial render to allow for fast navigation between pages.
 
 It uses the following:
 <br>

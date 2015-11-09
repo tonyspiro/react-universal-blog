@@ -1,7 +1,7 @@
 #React Universal Blog
 #####[View a demo here](http://tonyspiro.com:5000/)
 
-#####[Go to Cosmic JS](http://tonyspiro.com:5000/) to set up your React Universal Blog.
+#####[Go to Cosmic JS to set up your React Universal Blog](https://cosmicjs.com/).
 
 #####About
 The React Universal Blog lets you have your cake and eat it too: it renders html on the server side to make it SEO friendly and then creates a single page application to allow for fast navigation between pages.

@@ -5,13 +5,14 @@ This app demonstrates how to build a blog that satisfies the following:
 2. Creates a single page application after initial render to allow for fast navigation between pages.
 
 The app uses the following:
-1. React - UI views
-
-2. React Router - Routing
-
-3. Flux - Data flow
-
-4. Cosmic JS - Content management
+<br>
+1. [React](http://facebook.github.io/react/) - UI views
+<br>
+2. [React Router](https://github.com/rackt/react-router) - Routing
+<br>
+3. [Flux](https://facebook.github.io/flux/) - Data flow
+<br>
+4. [Cosmic JS](https://cosmicjs.com) - Content management
 #####Install
 ```
 git clone https://github.com/tonyspiro/react-universal-blog

@@ -14,4 +14,4 @@ Go to [http://localhost:8080/webpack-dev-server](http://localhost:8080/webpack-d
 ```
 npm run dev
 ```
-Go to [http://localhost:3000](http://localhost:3000) in your browser of choice.
+Go to [http://localhost:3000](http://localhost:3000)

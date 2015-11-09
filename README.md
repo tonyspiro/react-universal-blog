@@ -5,7 +5,7 @@ The React Universal Blog lets you have your cake and eat it too: it renders html
 It uses the following:
 <br>
 1. [React](http://facebook.github.io/react/) for UI views<br>
-2. [Express](http://expressjs.com/) for the Node.js server framework<br>
+2. [Express](http://expressjs.com/) for server side rendering<br>
 3. [React Router](https://github.com/rackt/react-router) for routing<br>
 4. [Flux](https://facebook.github.io/flux/) for data flow<br>
 5. [Cosmic JS](https://cosmicjs.com) for content management

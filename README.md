@@ -28,3 +28,15 @@ Go to [http://localhost:8080/webpack-dev-server](http://localhost:8080/webpack-d
 npm run prod
 ```
 Go to [http://localhost:3000](http://localhost:3000)
+#####Configure
+After setting up your blog on [Cosmic JS](https://cosmicjs.com), edit the ```config.js``` file and edit the slug to the slug of your bucket:
+```
+// config.js
+export default {
+  bucket: {
+    slug: 'react-universal-blog',
+    read_key: '',
+    write_key: ''
+  }
+}
+```

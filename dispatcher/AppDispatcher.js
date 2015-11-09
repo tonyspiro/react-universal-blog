@@ -1,5 +1,5 @@
 // AppDispatcher.js
-import {Dispatcher} from 'flux'
+import { Dispatcher } from 'flux'
 import AppStore from '../stores/AppStore'
 import { getStore, getMoreItems } from '../actions/actions'
 

@@ -1,6 +1,7 @@
 #React Universal Blog
-#####About
 The React Universal Blog lets you have your cake and eat it too: it renders html on the server side to make it SEO friendly and then creates a single page application to allow for fast navigation between pages.
+
+#####[View a demo here](http://tonyspiro.com:5000/)
 
 It uses the following:
 <br>

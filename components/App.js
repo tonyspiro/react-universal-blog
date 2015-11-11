@@ -1,4 +1,4 @@
-// AppClient.js
+// App.js
 import React, { Component } from 'react'
 
 // Dispatcher

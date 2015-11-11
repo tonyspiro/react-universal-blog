@@ -31,7 +31,7 @@ npm run prod
 ```
 Go to [http://localhost:3000](http://localhost:3000)
 #####Configure your Cosmic JS bucket
-After setting up your blog on [Cosmic JS](https://cosmicjs.com), edit the ```config.js``` file and edit the slug to point to the slug of your bucket:
+After setting up your bucket on [Cosmic JS](https://cosmicjs.com), edit the ```config.js``` file and edit the slug to point to the slug of your bucket:
 ```javascript
 // config.js
 export default {

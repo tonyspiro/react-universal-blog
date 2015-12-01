@@ -8,15 +8,6 @@ import hogan from 'hogan-express'
 // Actions
 import { getStore } from './actions/actions'
 
-// Main component
-import App from './components/App'
-
-// Routes
-import Blog from './components/routes/Blog'
-import Work from './components/routes/Work'
-import Default from './components/routes/Default'
-import NoMatch from './components/routes/NoMatch'
-
 // Store
 import AppStore from './stores/AppStore'
 

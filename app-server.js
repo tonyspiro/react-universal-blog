@@ -20,6 +20,9 @@ import NoMatch from './components/routes/NoMatch'
 // Store
 import AppStore from './stores/AppStore'
 
+// Routes
+import routes from './routes'
+
 // Express
 const app = express()
 app.engine('html', hogan)
@@ -31,18 +34,6 @@ app.get('*',(req, res) => {
 
   getStore(AppStore, function(err, Store){
     
-    const routes = (
-      <Route path="/" data={AppStore.data} component={App}>
-        <Route path="about" component={Default}/>
-        <Route path="contact" component={Default}/>
-        <Route path="work" component={Work}/>
-        <Route path="/work/:slug" component={Work}/>
-        <Route path="/blog/:slug" component={Blog}/>
-        <IndexRoute component={Blog}/>
-        <Route path="*" component={NoMatch}/>
-      </Route>
-    )
-
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     
       let reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)

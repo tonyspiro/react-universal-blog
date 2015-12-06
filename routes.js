@@ -1,4 +1,4 @@
-// routes.config.js
+// routes.js
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
@@ -9,10 +9,10 @@ import AppStore from './stores/AppStore'
 import App from './components/App'
 
 // Routes
-import Blog from './components/routes/Blog'
-import Default from './components/routes/Default'
-import Work from './components/routes/Work'
-import NoMatch from './components/routes/NoMatch'
+import Blog from './components/Pages/Blog'
+import Default from './components/Pages/Default'
+import Work from './components/Pages/Work'
+import NoMatch from './components/Pages/NoMatch'
 
 export default (
   <Route path="/" data={AppStore.data} component={App}>

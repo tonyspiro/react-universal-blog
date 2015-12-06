@@ -8,15 +8,15 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import AppStore from '../stores/AppStore'
 
 // Components
-import Nav from './partials/Nav'
-import Footer from './partials/Footer'
-import Loading from './partials/Loading'
+import Nav from './Partials/Nav'
+import Footer from './Partials/Footer'
+import Loading from './Partials/Loading'
 
 // Pages
-import Blog from './routes/Blog'
-import Work from './routes/Work'
-import Default from './routes/Default'
-import NoMatch from './routes/NoMatch'
+import Blog from './Pages/Blog'
+import Work from './Pages/Work'
+import Default from './Pages/Default'
+import NoMatch from './Pages/NoMatch'
 
 export default class App extends Component {
   

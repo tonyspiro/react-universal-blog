@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 
 // Components
-import Header from '../partials/Header'
-import BlogList from '../partials/BlogList'
-import BlogSingle from '../partials/BlogSingle'
+import Header from '../Partials/Header'
+import BlogList from '../Partials/BlogList'
+import BlogSingle from '../Partials/BlogSingle'
 
 export default class Blog extends Component {
 

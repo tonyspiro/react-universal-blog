@@ -4,8 +4,8 @@ import { Link } from 'react-router'
 import _ from 'lodash'
 
 // Components
-import Header from '../partials/Header'
-import BlogList from '../partials/BlogList'
+import Header from '../Partials/Header'
+import BlogList from '../Partials/BlogList'
 
 export default class Home extends Component {
 

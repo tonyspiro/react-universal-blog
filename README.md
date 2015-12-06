@@ -21,14 +21,14 @@ git clone https://github.com/tonyspiro/react-universal-blog
 cd react-universal-blog
 npm install
 ```
-#####Run webpack dev
+#####Run development
 ```
-npm run dev
+npm run development
 ```
 Go to [http://localhost:8080/webpack-dev-server](http://localhost:8080/webpack-dev-server)
 #####Run production
 ```
-npm run prod
+npm start
 ```
 Go to [http://localhost:3000](http://localhost:3000)
 #####Configure your Cosmic JS bucket

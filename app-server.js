@@ -18,7 +18,7 @@ import routes from './routes'
 const app = express()
 app.engine('html', hogan)
 app.set('views', __dirname + '/public')
-app.use('/dist', express.static(__dirname + '/public/dist'))
+app.use('/', express.static(__dirname + '/public/'))
 app.set('port', (process.env.PORT || 3000))
 
 app.get('*',(req, res) => {

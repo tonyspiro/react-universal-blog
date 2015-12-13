@@ -1,24 +1,17 @@
 // Header.js
 import React, { Component } from 'react'
-import Nav from './Nav'
 
 export default class Header extends Component {
 
   render(){
     
-    let hero
-    let headline
-    let subheadline
-
-    if(this.props.page){
-      hero = this.props.page.hero
-      headline = this.props.page.headline
-      subheadline = this.props.page.subheadline
-    }
+    const data = this.props.data
+    const hero = data.page.hero
+    const headline = data.page.headline
+    const subheadline = data.page.subheadline
 
     return (
       <div>
-        <Nav />
         <header className="intro-header" style={ { backgroundImage: "url('" + hero + "')" } }>
           <div className="container">
             <div className="row">

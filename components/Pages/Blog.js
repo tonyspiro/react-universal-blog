@@ -11,12 +11,12 @@ export default class Blog extends Component {
 
   getPage(){
 
-    let data = this.props.data
+    const data = this.props.data
     let pages = data.pages
     let pages_object = _.indexBy(pages, 'slug')
     let page = pages_object['home']
 
-    // Get page info 
+    // Get page info
     let metafields = page.metafields
     let hero = _.findWhere(metafields, { key: 'hero' })
     page.hero = 'https://cosmicjs.com/uploads/' + hero.value
@@ -42,13 +42,15 @@ export default class Blog extends Component {
 
   render(){
 
-    let data = this.props.data
-    let globals = data.globals
-    let pages = data.pages
+    const data = this.props.data
+    const globals = data.globals
+    const pages = data.pages
     let page = this.getPage()
+    data.page = page
+    
     return (
       <div>
-        <Header globals={ globals } pages={ pages } page={ page }/>
+        <Header data={ data }/>
         <div id="main-content" className="container">
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

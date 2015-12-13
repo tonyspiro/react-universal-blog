@@ -42,14 +42,7 @@ export default class App extends Component {
 
   render(){
     
-    // Server first
-    let data = this.props.route.data
-    
-    if(!data){
-      // Browser next
-      // Doing this because I don't want all of the content in a pile of JS mush on the page
-      data = AppStore.data
-    }
+    const data = AppStore.data
 
     // Show loading for browser
     if(!data.ready){
@@ -66,15 +59,14 @@ export default class App extends Component {
       )
     }
 
-    let globals = data.globals
-    let pages = data.pages
-    let Routes = React.cloneElement(this.props.children, { data: data })
+    // Server first
+    const Routes = React.cloneElement(this.props.children, { data: data })
 
     return (
       <div>
-        <Nav pages={ pages } globals={ globals }/>
+        <Nav data={ data }/>
         { Routes }
-        <Footer globals={ globals }/>
+        <Footer data={ data }/>
       </div>
     )
   }

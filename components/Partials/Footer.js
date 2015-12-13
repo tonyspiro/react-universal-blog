@@ -4,19 +4,20 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
 
   render(){
-      
+    
+    const data = this.props.data  
     let footer_text
-    if(this.props.globals.text){
-      footer_text = this.props.globals.text.footer_text
+    if(data.globals.text){
+      footer_text = data.globals.text.footer_text
     }
 
     let twitter
     let facebook
     let github
-    if(this.props.globals.social){
-      twitter = this.props.globals.social.twitter
-      facebook = this.props.globals.social.facebook
-      github = this.props.globals.social.github
+    if(data.globals.social){
+      twitter = data.globals.social.twitter
+      facebook = data.globals.social.facebook
+      github = data.globals.social.github
     }
 
     return (

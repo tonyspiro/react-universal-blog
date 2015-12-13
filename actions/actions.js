@@ -7,9 +7,6 @@ export function getStore(Store, callback){
   
   let pages = {}
 
-  Store.data.ready = false
-  Store.data.pages = []
-
   Cosmic.getObjects(config, function(err, response){
     
     let objects = response.objects

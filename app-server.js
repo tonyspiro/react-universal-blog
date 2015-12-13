@@ -17,17 +17,21 @@ import routes from './routes'
 // Express
 const app = express()
 app.engine('html', hogan)
-app.set('views', __dirname + '/public')
+app.set('views', __dirname + '/views')
 app.use('/', express.static(__dirname + '/public/'))
 app.set('port', (process.env.PORT || 3000))
 
 app.get('*',(req, res) => {
 
   getStore(AppStore, function(err, Store){
-    
+
+    if(err){
+      return res.status(500).end('error')
+    }
+   
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-    
-      let reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
+      
+      const reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
       
       res.locals.reactMarkup = reactMarkup
 

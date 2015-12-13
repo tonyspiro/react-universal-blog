@@ -11,9 +11,9 @@ export default class Nav extends Component {
 
   render(){
     
-    let _this = this
-    let pages = this.props.pages
-    let globals = this.props.globals
+    const data = this.props.data
+    const pages = data.pages
+    const globals = data.globals
     
     // Prevent initial null
     if(!pages){
@@ -36,7 +36,7 @@ export default class Nav extends Component {
 
       return (
         <li key={ 'key-' + page.slug }>
-          <Link onClick={ _this.handleClick } to={ '/' + page_link }>{ page.title }</Link>
+          <Link onClick={ this.handleClick } to={ '/' + page_link }>{ page.title }</Link>
         </li>
       )
     })
@@ -51,7 +51,7 @@ export default class Nav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" target="_blank" href="https://cosmicjs.com">{ globals.text.menu_title }</a>
+            <a className="navbar-brand" target="_blank" href="https://cosmicjs.com">Cosmic JS</a>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

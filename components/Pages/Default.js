@@ -10,7 +10,8 @@ export default class Home extends Component {
 
   getPage(){
 
-    let pages = this.props.data.pages
+    const data = this.props.data
+    let pages = data.pages
 
     // Get current page slug
     let current_slug = this.props.route.path
@@ -34,14 +35,15 @@ export default class Home extends Component {
 
   render(){
 
-    let data = this.props.data
+    const data = this.props.data
     let globals = data.globals
     let pages = data.pages
     let page = this.getPage()
+    data.page = page
 
     return (
       <div>
-        <Header globals={ globals } pages={ pages } page={ page }/>
+        <Header data={ data }/>
         <div id="main-content" className="container">
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

@@ -8,9 +8,6 @@ import hogan from 'hogan-express'
 // Actions
 import { getStore } from './actions/actions'
 
-// Store
-import AppStore from './stores/AppStore'
-
 // Routes
 import routes from './routes'
 
@@ -23,7 +20,7 @@ app.set('port', (process.env.PORT || 3000))
 
 app.get('*',(req, res) => {
 
-  getStore(AppStore, function(err, Store){
+  getStore(function(err, AppStore){
 
     if(err){
       return res.status(500).end('error')

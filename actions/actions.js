@@ -3,7 +3,10 @@ import config from '../config'
 import Cosmic from 'cosmicjs'
 import _ from 'lodash'
 
-export function getStore(Store, callback){
+// AppStore
+import AppStore from '../stores/AppStore'
+
+export function getStore(callback){
   
   let pages = {}
 
@@ -13,7 +16,7 @@ export function getStore(Store, callback){
     
     /* Globals
     ======================== */
-    let globals = Store.data.globals
+    let globals = AppStore.data.globals
     globals.text = response.object['text']
     let metafields = globals.text.metafields
     let menu_title = _.findWhere(metafields, { key: 'menu-title' })
@@ -35,47 +38,47 @@ export function getStore(Store, callback){
     let github = _.findWhere(metafields, { key: 'github' })
     globals.social.github = github.value
 
-    Store.data.globals = globals
+    AppStore.data.globals = globals
 
     /* Pages
     ======================== */
     let pages = objects.type.page
-    Store.data.pages = pages
+    AppStore.data.pages = pages
 
     /* Articles
     ======================== */
     let articles = objects.type['post']
     articles = _.sortBy(articles, 'order')
-    Store.data.articles = articles
+    AppStore.data.articles = articles
 
     /* Work Items
     ======================== */
     let work_items = objects.type['work']
     work_items = _.sortBy(work_items, 'order')
-    Store.data.work_items = work_items
+    AppStore.data.work_items = work_items
     
     // Emit change
-    Store.data.ready = true
-    Store.emitChange()
+    AppStore.data.ready = true
+    AppStore.emitChange()
 
     // Trigger callback (from server)
     if(callback){
-      callback(false, Store)
+      callback(false, AppStore)
     }
 
   })
 }
 
-export function getMoreItems(Store){
+export function getMoreItems(){
   
-  Store.data.loading = true
-  Store.emitChange()
+  AppStore.data.loading = true
+  AppStore.emitChange()
 
   setTimeout(function(){
-    let item_num = Store.data.item_num
+    let item_num = AppStore.data.item_num
     let more_item_num = item_num + 5
-    Store.data.item_num = more_item_num
-    Store.data.loading = false
-    Store.emitChange()
+    AppStore.data.item_num = more_item_num
+    AppStore.data.loading = false
+    AppStore.emitChange()
   }, 300)
 }

@@ -46,6 +46,7 @@ export default class App extends Component {
 
     // Show loading for browser
     if(!data.ready){
+
       document.body.className = ''
       this.getStore()
 

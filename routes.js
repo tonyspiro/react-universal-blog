@@ -8,7 +8,7 @@ import AppStore from './stores/AppStore'
 // Main component
 import App from './components/App'
 
-// Routes
+// Pages
 import Blog from './components/Pages/Blog'
 import Default from './components/Pages/Default'
 import Work from './components/Pages/Work'

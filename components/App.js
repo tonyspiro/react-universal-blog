@@ -12,12 +12,6 @@ import Nav from './Partials/Nav'
 import Footer from './Partials/Footer'
 import Loading from './Partials/Loading'
 
-// Pages
-import Blog from './Pages/Blog'
-import Work from './Pages/Work'
-import Default from './Pages/Default'
-import NoMatch from './Pages/NoMatch'
-
 export default class App extends Component {
   
   _onChange() {

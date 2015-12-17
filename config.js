@@ -1,7 +1,7 @@
 // config.js
 export default {
   bucket: {
-    slug: 'react-universal-blog',
+    slug: 'tonyspirocom',
     read_key: '',
     write_key: ''
   }

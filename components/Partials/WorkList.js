@@ -10,14 +10,8 @@ export default class WorkList extends Component {
 
   scrollTop(){
     $('html, body').animate({
-        scrollTop: $("#main-content").offset().top
+      scrollTop: $("#main-content").offset().top
     }, 500)
-  }
-
-  getMoreWorkItems(){
-    AppDispatcher.dispatch({
-      action: 'get-more-items'
-    })
   }
 
   render(){
@@ -38,7 +32,7 @@ export default class WorkList extends Component {
     if(work_items && item_num <= work_items.length){
       load_more = (
         <div>
-          <button className="btn btn-default center-block" onClick={ this.getMoreWorkItems }>
+          <button className="btn btn-default center-block" onClick={ this.props.getMoreWorkItems.bind(this) }>
             { show_more_text }
           </button>
         </div>

@@ -7,7 +7,16 @@ import Header from '../Partials/Header'
 import WorkList from '../Partials/WorkList'
 import WorkSingle from '../Partials/WorkSingle'
 
+// Dispatcher
+import AppDispatcher from '../../dispatcher/AppDispatcher'
+
 export default class Work extends Component {
+
+  getMoreWorkItems(){
+    AppDispatcher.dispatch({
+      action: 'get-more-items'
+    })
+  }
 
   getPage(){
 
@@ -29,11 +38,17 @@ export default class Work extends Component {
 
     if(!this.props.params.slug){
 
-      page.main_content = <WorkList data={data}/>
+      page.main_content = <WorkList getMoreWorkItems={ this.getMoreWorkItems } data={data}/>
 
     } else {
-
-     page.main_content = <WorkSingle data={data} slug={ this.props.params.slug }/>
+      
+      const work_items = data.work_items
+      
+      // Get current page slug
+      const slug = this.props.params.slug
+      const work_items_object = _.indexBy(work_items, 'slug')
+      const work_item = work_items_object[slug]
+      page.main_content = <WorkSingle data={data} work_item={ work_item }/>
 
     }
     return page

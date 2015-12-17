@@ -7,14 +7,9 @@ export default class WorkSingle extends Component {
   
   render(){
     
-    let work_items = this.props.data.work_items
-
-    // Get current page slug
-    let slug = this.props.slug
-    let articles_object = _.indexBy(work_items, 'slug')
-    let work_item = articles_object[slug]
+    const work_item = this.props.work_item
     
-    let style = {
+    const style = {
       marginBottom: 20
     }
 

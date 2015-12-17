@@ -43,7 +43,7 @@ export default class Blog extends Component {
     } else {
 
       const articles = data.articles
-
+      
       // Get current page slug
       const slug = this.props.params.slug
       const articles_object = _.indexBy(articles, 'slug')

@@ -7,7 +7,16 @@ import Header from '../Partials/Header'
 import BlogList from '../Partials/BlogList'
 import BlogSingle from '../Partials/BlogSingle'
 
+// Dispatcher
+import AppDispatcher from '../../dispatcher/AppDispatcher'
+
 export default class Blog extends Component {
+
+  getMoreArticles(){
+    AppDispatcher.dispatch({
+      action: 'get-more-items'
+    })
+  }
 
   getPage(){
 
@@ -29,11 +38,17 @@ export default class Blog extends Component {
 
     if(!this.props.params.slug){
 
-      page.main_content = <BlogList data={data}/>
+      page.main_content = <BlogList getMoreArticles={ this.getMoreArticles } data={data}/>
 
     } else {
 
-      page.main_content = <BlogSingle data={data} slug={ this.props.params.slug }/>
+      const articles = data.articles
+
+      // Get current page slug
+      const slug = this.props.params.slug
+      const articles_object = _.indexBy(articles, 'slug')
+      const article = articles_object[slug]
+      page.main_content = <BlogSingle article={article} />
 
     }
 

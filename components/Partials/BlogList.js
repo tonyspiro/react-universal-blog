@@ -3,21 +3,12 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router'
 
-// Dispatcher
-import AppDispatcher from '../../dispatcher/AppDispatcher'
-
 export default class BlogList extends Component {
 
   scrollTop(){
     $('html, body').animate({
-        scrollTop: $("#main-content").offset().top
+      scrollTop: $("#main-content").offset().top
     }, 500)
-  }
-
-  getMoreArticles(){
-    AppDispatcher.dispatch({
-      action: 'get-more-items'
-    })
   }
 
   render(){
@@ -38,7 +29,7 @@ export default class BlogList extends Component {
     if(articles && item_num <= articles.length){
       load_more = (
         <div>
-          <button className="btn btn-default center-block" onClick={ this.getMoreArticles }>
+          <button className="btn btn-default center-block" onClick={ this.props.getMoreArticles.bind(this) }>
             { show_more_text }
           </button>
         </div>

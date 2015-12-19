@@ -1,46 +1,40 @@
 // NoMatch.js
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import _ from 'lodash'
+import config from '../../config'
 
 // Components
 import Header from '../Partials/Header'
-import BlogList from '../Partials/BlogList'
 
-export default class Home extends Component {
+// Dispatcher
+import AppDispatcher from '../../dispatcher/AppDispatcher'
 
-  getPage(){
+export default class NoMatch extends Component {
 
-    let pages = this.props.data.pages
+  componentWillMount(){
+    this.getPageData()
+  }
 
-    // Get home page info
-    let pages_object = _.indexBy(pages, 'slug')
-    let page = pages_object['home']
-    
-    // Get page info 
-    let metafields = page.metafields
-    let hero = _.findWhere(metafields, { key: 'hero' })
-    page.hero = 'https://cosmicjs.com/uploads/' + hero.value
-    
-    let headline = _.findWhere(metafields, { key: 'headline' })
-    page.headline = headline.value
+  componentDidMount(){
+    const data = this.props.data
+    document.title = config.site.title + ' | Page Not Found'
+  }
 
-    let subheadline = _.findWhere(metafields, { key: 'subheadline' })
-    page.subheadline = subheadline.value
-    
-    return page
+  getPageData(){
+    AppDispatcher.dispatch({
+      action: 'get-page-data',
+      slug: 'home'
+    })
   }
   
   render(){
     
-    let data = this.props.data
-    let globals = data.globals
-    let pages = data.pages
-    let page = this.getPage()
+    const data = this.props.data
+    const page = data.page
 
     return (
       <div>
-        <Header globals={ globals } pages={ pages } page={ page }/>
+        <Header data={ data }/>
         <div id="main-content" className="container">
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

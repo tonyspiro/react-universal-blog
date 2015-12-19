@@ -1,6 +1,7 @@
 // Work.js
 import React, { Component } from 'react'
 import _ from 'lodash'
+import config from '../../config'
 
 // Components
 import Header from '../Partials/Header'
@@ -18,27 +19,32 @@ export default class Work extends Component {
     })
   }
 
-  getPage(){
+  componentWillMount(){
+    this.getPageData()
+  }
+
+  componentDidMount(){
+    const data = this.props.data
+    document.title = config.site.title + ' | ' + data.page.title
+  }
+
+  getPageData(){
+    AppDispatcher.dispatch({
+      action: 'get-page-data',
+      slug: 'work'
+    })
+  }
+
+  render(){
 
     const data = this.props.data
-    let pages = data.pages
-    let pages_object = _.indexBy(pages, 'slug')
-    let page = pages_object['work']
-
-    // Get page info 
-    let metafields = page.metafields
-    let hero = _.findWhere(metafields, { key: 'hero' })
-    page.hero = 'https://cosmicjs.com/uploads/' + hero.value
-
-    let headline = _.findWhere(metafields, { key: 'headline' })
-    page.headline = headline.value
-
-    let subheadline = _.findWhere(metafields, { key: 'subheadline' })
-    page.subheadline = subheadline.value
+    const globals = data.globals
+    const pages = data.pages
+    let main_content
 
     if(!this.props.params.slug){
 
-      page.main_content = <WorkList getMoreWorkItems={ this.getMoreWorkItems } data={data}/>
+      main_content = <WorkList getMoreWorkItems={ this.getMoreWorkItems } data={ data }/>
 
     } else {
       
@@ -48,19 +54,10 @@ export default class Work extends Component {
       const slug = this.props.params.slug
       const work_items_object = _.indexBy(work_items, 'slug')
       const work_item = work_items_object[slug]
-      page.main_content = <WorkSingle data={data} work_item={ work_item }/>
+      
+      main_content = <WorkSingle data={ data } work_item={ work_item }/>
 
     }
-    return page
-  }
-
-  render(){
-
-    const data = this.props.data
-    let globals = data.globals
-    let pages = data.pages
-    let page = this.getPage()
-    data.page = page
 
     return (
       <div>
@@ -68,7 +65,7 @@ export default class Work extends Component {
           <div id="main-content" className="container">
             <div className="row">
               <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              { page.main_content }
+              { main_content }
               </div>
           </div>
         </div>

@@ -69,6 +69,30 @@ export function getStore(callback){
   })
 }
 
+export function getPageData(slug){
+  
+  if(!slug)
+    slug = 'home'
+  
+  // Get page info
+  const data = AppStore.data
+  const pages = data.pages
+  const pages_object = _.indexBy(pages, 'slug')
+  const page = pages_object[slug]
+  const metafields = page.metafields
+  const hero = _.findWhere(metafields, { key: 'hero' })
+  page.hero = config.bucket.media_url + '/' + hero.value
+
+  const headline = _.findWhere(metafields, { key: 'headline' })
+  page.headline = headline.value
+
+  const subheadline = _.findWhere(metafields, { key: 'subheadline' })
+  page.subheadline = subheadline.value
+  
+  AppStore.data.page = page
+  AppStore.emitChange()
+}
+
 export function getMoreItems(){
   
   AppStore.data.loading = true

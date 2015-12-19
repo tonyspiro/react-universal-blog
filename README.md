@@ -38,9 +38,7 @@ After setting up your bucket on [Cosmic JS](https://cosmicjs.com), edit the ```c
 // config.js
 export default {
   bucket: {
-    slug: 'react-universal-blog',
-    read_key: '',
-    write_key: ''
+    slug: 'react-universal-blog'
   }
 }
 ```

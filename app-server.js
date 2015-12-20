@@ -27,18 +27,18 @@ app.get('*',(req, res) => {
       return res.status(500).end('error')
     }
 
-    // Get page data for template
-    const slug = req.url.replace('/','')
-    if(slug) getPageData(slug)
-    const page = AppStore.data.page
-    
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
       
-      const reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
-      
-      res.locals.reactMarkup = reactMarkup
+      // Get page data for template
+      const slug = req.url.replace('/','')
+      if(slug) getPageData(slug)
+      const page = AppStore.data.page
       res.locals.page = page
       res.locals.site = config.site
+
+      // Get React markup
+      const reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
+      res.locals.reactMarkup = reactMarkup
 
       if (error) {
       

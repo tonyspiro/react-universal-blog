@@ -15,19 +15,23 @@ export default class Default extends Component {
     this.getPageData()
   }
 
+  getSlug(){
+    return this.props.location.pathname.replace('/','') 
+  }
+
   componentDidUpdate(){
     const data = this.props.data
     document.title = config.site.title + ' | ' + data.page.title
     
     // Updated
     const page = data.page
-    const slug = this.props.location.pathname.replace('/','')
+    const slug = this.getSlug()
     if(page.slug !== slug)
       this.getPageData()
   }
 
   getPageData(){
-    const slug = this.props.location.pathname.replace('/','')
+    const slug = this.getSlug()
     AppDispatcher.dispatch({
       action: 'get-page-data',
       slug: slug
@@ -36,7 +40,7 @@ export default class Default extends Component {
   
   render(){
     
-    const slug = this.props.location.pathname.replace('/','')
+    const slug = this.getSlug()
     const data = this.props.data
     const page = data.page
 

@@ -15,8 +15,6 @@ export default class BlogList extends Component {
     
     let data = this.props.data
     let item_num = data.item_num
-    let _this = this
-
     let articles = data.articles
 
     let load_more

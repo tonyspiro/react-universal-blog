@@ -18,8 +18,6 @@ export default class WorkList extends Component {
     
     let data = this.props.data
     let item_num = data.item_num
-    let _this = this
-
     let work_items = data.work_items
 
     let load_more

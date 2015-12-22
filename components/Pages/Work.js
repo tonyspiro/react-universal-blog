@@ -13,12 +13,6 @@ import AppDispatcher from '../../dispatcher/AppDispatcher'
 
 export default class Work extends Component {
 
-  getMoreWorkItems(){
-    AppDispatcher.dispatch({
-      action: 'get-more-items'
-    })
-  }
-
   componentWillMount(){
     this.getPageData()
   }
@@ -32,6 +26,12 @@ export default class Work extends Component {
     AppDispatcher.dispatch({
       action: 'get-page-data',
       slug: 'work'
+    })
+  }
+
+  getMoreWorkItems(){
+    AppDispatcher.dispatch({
+      action: 'get-more-items'
     })
   }
 

@@ -14,10 +14,6 @@ import Loading from './Partials/Loading'
 
 export default class App extends Component {
   
-  _onChange(){
-    this.setState(AppStore)
-  }
-
   // Add change listeners to stores
   componentDidMount(){
     AppStore.addChangeListener(this._onChange.bind(this))
@@ -32,6 +28,10 @@ export default class App extends Component {
     AppDispatcher.dispatch({
       action: 'get-app-store'
     })
+  }
+
+  _onChange(){
+    this.setState(AppStore)
   }
 
   render(){

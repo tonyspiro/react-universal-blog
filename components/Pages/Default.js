@@ -15,10 +15,6 @@ export default class Default extends Component {
     this.getPageData()
   }
 
-  getSlug(){
-    return this.props.location.pathname.replace('/','') 
-  }
-
   componentDidUpdate(){
     const data = this.props.data
     document.title = config.site.title + ' | ' + data.page.title
@@ -28,6 +24,10 @@ export default class Default extends Component {
     const slug = this.getSlug()
     if(page.slug !== slug)
       this.getPageData()
+  }
+
+  getSlug(){
+    return this.props.location.pathname.replace('/','') 
   }
 
   getPageData(){

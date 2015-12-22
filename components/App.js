@@ -14,17 +14,17 @@ import Loading from './Partials/Loading'
 
 export default class App extends Component {
   
-  _onChange() {
+  _onChange(){
     this.setState(AppStore)
   }
 
   // Add change listeners to stores
-  componentDidMount() {
+  componentDidMount(){
     AppStore.addChangeListener(this._onChange.bind(this))
   }
 
   // Remove change listeners from stores
-  componentWillUnmount() {
+  componentWillUnmount(){
     AppStore.removeChangeListener(this._onChange.bind(this))
   }
 

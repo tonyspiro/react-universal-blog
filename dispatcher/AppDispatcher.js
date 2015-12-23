@@ -16,7 +16,7 @@ AppDispatcher.register((payload) => {
       break
 
     case 'get-page-data':
-      getPageData(payload.slug)
+      getPageData(payload.page_slug, payload.post_slug)
       break
 
     case 'get-more-items':

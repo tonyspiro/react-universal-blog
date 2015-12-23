@@ -21,9 +21,9 @@ export default class Default extends Component {
     
     // Updated
     const page = data.page
-    const slug = this.getSlug()
-    if(page.slug !== slug)
-      this.getPageData()
+    const page_slug = this.getSlug()
+    if(page.slug !== page_slug)
+      this.getPageData(page_slug)
   }
 
   getSlug(){
@@ -31,10 +31,10 @@ export default class Default extends Component {
   }
 
   getPageData(){
-    const slug = this.getSlug()
+    const page_slug = this.getSlug()
     AppDispatcher.dispatch({
       action: 'get-page-data',
-      slug: slug
+      page_slug: page_slug
     })
   }
   

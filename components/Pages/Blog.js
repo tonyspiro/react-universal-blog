@@ -25,7 +25,8 @@ export default class Blog extends Component {
   getPageData(){
     AppDispatcher.dispatch({
       action: 'get-page-data',
-      slug: 'home'
+      page_slug: 'blog',
+      post_slug: this.props.params.slug
     })
   }
 

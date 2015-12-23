@@ -25,7 +25,8 @@ export default class Work extends Component {
   getPageData(){
     AppDispatcher.dispatch({
       action: 'get-page-data',
-      slug: 'work'
+      page_slug: 'work',
+      post_slug: this.props.params.slug
     })
   }
 

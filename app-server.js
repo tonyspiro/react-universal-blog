@@ -30,8 +30,12 @@ app.get('*',(req, res) => {
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
       
       // Get page data for template
-      const slug = req.url.replace('/','')
-      if(slug) getPageData(slug)
+      const slug_arr = req.url.split('/')
+      let page_slug = slug_arr[1]
+      let post_slug
+      if(page_slug === 'blog' || page_slug === 'work')
+        post_slug = slug_arr[2]
+      getPageData(page_slug, post_slug)
       const page = AppStore.data.page
       res.locals.page = page
       res.locals.site = config.site

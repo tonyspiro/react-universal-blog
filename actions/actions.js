@@ -38,6 +38,10 @@ export function getStore(callback){
     let github = _.findWhere(metafields, { key: 'github' })
     globals.social.github = github.value
 
+    // Nav
+    const nav_items = response.object['nav'].metafields
+    globals.nav_items = nav_items
+    
     AppStore.data.globals = globals
 
     /* Pages
@@ -69,26 +73,39 @@ export function getStore(callback){
   })
 }
 
-export function getPageData(slug){
+export function getPageData(page_slug, post_slug){
   
-  if(!slug)
-    slug = 'home'
+  if(!page_slug || page_slug === 'blog')
+    page_slug = 'home'
   
   // Get page info
   const data = AppStore.data
   const pages = data.pages
-  const pages_object = _.indexBy(pages, 'slug')
-  const page = pages_object[slug]
+  const page = _.findWhere(pages, { slug: page_slug })
   const metafields = page.metafields
-  const hero = _.findWhere(metafields, { key: 'hero' })
-  page.hero = config.bucket.media_url + '/' + hero.value
+  if(metafields){
+    const hero = _.findWhere(metafields, { key: 'hero' })
+    page.hero = config.bucket.media_url + '/' + hero.value
 
-  const headline = _.findWhere(metafields, { key: 'headline' })
-  page.headline = headline.value
+    const headline = _.findWhere(metafields, { key: 'headline' })
+    page.headline = headline.value
 
-  const subheadline = _.findWhere(metafields, { key: 'subheadline' })
-  page.subheadline = subheadline.value
-  
+    const subheadline = _.findWhere(metafields, { key: 'subheadline' })
+    page.subheadline = subheadline.value
+  }
+
+  if(post_slug){
+    if(page_slug === 'home'){
+      const articles = data.articles
+      const article = _.findWhere(articles, { slug: post_slug })
+      page.title = article.title
+    }
+    if(page_slug === 'work'){
+      const work_items = data.work_items
+      const work_item = _.findWhere(work_items, { slug: post_slug })
+      page.title = work_item.title
+    }
+  }
   AppStore.data.page = page
   AppStore.emitChange()
 }

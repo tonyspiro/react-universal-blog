@@ -12,31 +12,17 @@ export default class Nav extends Component {
   render(){
     
     const data = this.props.data
-    const pages = data.pages
-    const globals = data.globals
+    const nav_items = data.globals.nav_items
     
     // Prevent initial null
-    if(!pages){
+    if(!nav_items){
       return <div></div>
     }
 
-    let page_link
-
-    let menu_items = pages.map(( page ) => {
-      
-      if(page.slug == 'home'){
-      
-        page_link = ''
-      
-      } else {
-      
-        page_link = page.slug
-
-      }
-
+    const menu_items = nav_items.map(( nav_item ) => {
       return (
-        <li key={ 'key-' + page.slug }>
-          <Link onClick={ this.handleClick } to={ '/' + page_link }>{ page.title }</Link>
+        <li key={ 'key-' + nav_item.value }>
+          <Link onClick={ this.handleClick } to={ '/' + nav_item.value }>{ nav_item.title }</Link>
         </li>
       )
     })

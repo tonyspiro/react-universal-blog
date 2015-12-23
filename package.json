@@ -11,7 +11,7 @@
     "events": "^1.1.0",
     "express": "^4.13.3",
     "flux": "^2.1.1",
-    "history": "^1.14.0",
+    "history": "^1.13.0",
     "hogan-express": "^0.5.2",
     "lodash": "^3.10.1",
     "react": "^0.14.1",

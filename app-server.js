@@ -37,7 +37,7 @@ app.get('*',(req, res) => {
       res.locals.site = config.site
 
       // Get React markup
-      const reactMarkup = ReactDOMServer.renderToString(<RoutingContext {...renderProps} />)
+      const reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
       res.locals.reactMarkup = reactMarkup
 
       if (error) {

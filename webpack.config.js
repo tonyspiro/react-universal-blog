@@ -1,4 +1,6 @@
 // webpack.config.js
+var webpack = require('webpack')
+
 if(process.env.NODE_ENV === 'development'){
   var loaders = ['react-hot','babel']
 } else {
@@ -18,5 +20,10 @@ module.exports = {
       loaders: loaders,
       exclude: /node_modules/
     }]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.COSMIC_BUCKET': JSON.stringify(process.env.COSMIC_BUCKET)
+    })
+ ]
 };

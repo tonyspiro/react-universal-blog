@@ -1,6 +1,10 @@
 {
   "name": "react-universal-blog",
   "version": "1.0.0",
+  "engines": {
+    "node": "4.1.2",
+    "npm": "3.5.2"
+  },
   "description": "",
   "main": "app-server.js",
   "dependencies": {

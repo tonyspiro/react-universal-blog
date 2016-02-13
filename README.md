@@ -1,6 +1,6 @@
 #React Universal Blog
 #####[View a demo here](http://tonyspiro.com:5000/)
-#####[Go to Cosmic JS to set up a bucket for your blog content](https://cosmicjs.com/)
+[Sign up for Cosmic JS](https://cosmicjs.com/) to start managing content for your websites and applications faster and easier.
 
 #####About
 The React Universal Blog is a portfolio blog app that renders html on the server to make all pages visible to search engines. Then after initial load from the server, it is converted to a single page application to allow for fast navigation between pages.  

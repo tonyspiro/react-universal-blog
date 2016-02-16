@@ -40,12 +40,12 @@
     ],
     "links": [
       {
-        "title": "Demo Link",
-        "link": "http://tonyspiro.com:5000/"
-      },
-      {
         "title": "GitHub Repo",
         "link": "https://github.com/tonyspiro/react-universal-blog"
+      },
+      {
+        "title": "Preview",
+        "link": "http://react-universal-blog.cosmicapp.co/"
       }
     ],
     "objects": [

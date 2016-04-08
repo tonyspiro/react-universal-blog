@@ -18,8 +18,8 @@
     "history": "^1.13.0",
     "hogan-express": "^0.5.2",
     "lodash": "^3.10.1",
-    "react": "^0.14.1",
-    "react-dom": "^0.14.1",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
     "react-router": "^1.0.1",
     "webpack": "^1.12.2"
   },

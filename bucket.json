@@ -1,0 +1,468 @@
+{
+  "bucket": {
+    "_id": "563c1dbe1ae7fe0f41000036",
+    "slug": "react-universal-blog",
+    "title": "React Universal Blog",
+    "object_types": [
+      {
+        "title": "Pages",
+        "slug": "page",
+        "singular": "Page",
+        "order": 2
+      },
+      {
+        "title": "Posts",
+        "slug": "post",
+        "singular": "Post",
+        "order": 3
+      },
+      {
+        "title": "Work",
+        "slug": "work",
+        "singular": "work",
+        "order": 4
+      },
+      {
+        "title": "Globals",
+        "slug": "globals",
+        "singular": "globals",
+        "help_text": null,
+        "metafields": [],
+        "options": {
+          "slug_field": 0,
+          "content_editor": 0,
+          "add_metafields": 0,
+          "metafields_title": 0,
+          "metafields_key": 0
+        },
+        "order": 1
+      }
+    ],
+    "links": [
+      {
+        "title": "GitHub Repo",
+        "link": "https://github.com/tonyspiro/react-universal-blog"
+      },
+      {
+        "title": "Preview",
+        "link": "http://react-universal-blog.cosmicapp.co/"
+      }
+    ],
+    "objects": [
+      {
+        "_id": "563c1def1ae7fe0f41000038",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "text",
+        "title": "Text",
+        "content": "<p><br></p>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "React Universal Blog",
+            "key": "site-title",
+            "title": "Site Title",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "Cosmic JS",
+            "key": "menu-title",
+            "title": "Menu Title",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "Copyright &copy; Cosmic JS 2015",
+            "key": "footer-text",
+            "title": "Footer Text",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "globals",
+        "created": "2015-11-06T03:26:39.533Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 0,
+          "add_metafields": 0,
+          "metafields_title": 0,
+          "metafields_key": 0
+        },
+        "order": null,
+        "modified": "2015-11-06T03:41:04.284Z"
+      },
+      {
+        "_id": "563c1def1ae7fe0f4100003a",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "social",
+        "title": "Social",
+        "content": "<p><br></p>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "https://twitter.com/cosmic_js",
+            "key": "twitter",
+            "title": "Twitter",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "https://facebook.com/cosmicjs",
+            "key": "facebook",
+            "title": "Facebook",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "https://github.com/tonyspiro/react-universal-blog",
+            "key": "github",
+            "title": "Github",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "globals",
+        "created": "2015-11-06T03:26:39.535Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 0,
+          "add_metafields": 0,
+          "metafields_title": 0,
+          "metafields_key": 0
+        },
+        "order": null,
+        "modified": "2015-11-09T03:08:48.088Z"
+      },
+      {
+        "_id": "563c1fb51ae7fe0f41000086",
+        "slug": "hello-universe",
+        "title": "Hello Universe!",
+        "content": "<p>This is the first post on your React&nbsp;<span style=\"line-height: 1.42857;\">Universal</span><span style=\"line-height: 1.42857;\">&nbsp;Blog. &nbsp;You can add as many of these as you like! &nbsp;Isn't that exciting?! &nbsp;This cat thinks so.<img src=\"https://cosmicjs.com/uploads/88c45370-5430-11e6-a6a3-41ff49de9ecd-download.jpeg\" style=\"width: 1058px;\"></span></p><p></p>",
+        "metafields": [],
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "type_slug": "post",
+        "created": "2015-11-06T03:34:13.437Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 1,
+          "add_metafields": 1,
+          "metafields_title": 1,
+          "metafields_key": 1
+        },
+        "modified": "2016-07-27T19:30:56.547Z",
+        "status": "published"
+      },
+      {
+        "_id": "563c20ad1ae7fe0f41000087",
+        "slug": "work-item-title",
+        "title": "Work Item Title",
+        "content": "<p>This is an interesting work item isn't it? &nbsp;Lumberg says, \"...yeah\"<img src=\"https://cosmicjs.com/uploads/b9d4e740-5430-11e6-a6a3-41ff49de9ecd-download%20(1).jpeg\" style=\"width: 1058px;\"></p>",
+        "metafields": [],
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "type_slug": "work",
+        "created": "2015-11-06T03:38:21.580Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 1,
+          "add_metafields": 1,
+          "metafields_title": 1,
+          "metafields_key": 1
+        },
+        "modified": "2016-07-27T19:32:03.060Z",
+        "status": "published"
+      },
+      {
+        "_id": "567ad73780fb306b3a00000c",
+        "slug": "nav",
+        "title": "Nav",
+        "content": "<p><br></p>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "",
+            "key": "home",
+            "title": "Home",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "work",
+            "key": "work",
+            "title": "Work",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "about",
+            "key": "about",
+            "title": "About",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "contact",
+            "key": "contact",
+            "title": "Contact",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "type_slug": "globals",
+        "created": "2015-12-23T17:17:43.844Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 0,
+          "add_metafields": 0,
+          "metafields_title": 0,
+          "metafields_key": 0
+        },
+        "modified": "2015-12-23T17:36:19.442Z"
+      },
+      {
+        "_id": "563c1def1ae7fe0f41000043",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "home",
+        "title": "Home",
+        "content": "<p>This is some home page content...</p>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "45904530-8449-11e5-adfe-014902af5eff-space_11.jpg",
+            "key": "hero",
+            "title": "Hero",
+            "type": "file",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "React Universal",
+            "key": "headline",
+            "title": "Headline",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "A Cosmic JS App Built with React",
+            "key": "subheadline",
+            "title": "Subheadline",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "page",
+        "created": "2015-11-06T03:26:39.539Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": {
+          "slug_field": 0,
+          "content_editor": 1,
+          "add_metafields": 1,
+          "metafields_title": 1,
+          "metafields_key": 1
+        },
+        "order": 1,
+        "modified": "2015-12-29T03:57:55.322Z"
+      },
+      {
+        "_id": "563c1def1ae7fe0f41000044",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "work",
+        "title": "Work",
+        "content": "<p><br></p>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "699270f0-77bc-11e5-bea6-3f1da2fe3a09-6a6b6eb0-6f5f-11e5-9c06-3fa77abead52-outer-space-1920x1200-hd-wallpaper (1).jpg",
+            "key": "hero",
+            "title": "Hero",
+            "type": "file",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "Work Stuff",
+            "key": "headline",
+            "title": "Headline",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "All work and no play make for a dull demo",
+            "key": "subheadline",
+            "title": "Subheadline",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "page",
+        "created": "2015-11-06T03:26:39.540Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": null,
+        "order": 2,
+        "modified": "2015-11-06T06:14:09.592Z"
+      },
+      {
+        "_id": "563c1def1ae7fe0f41000047",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "about",
+        "title": "About",
+        "content": "Hi, I'm a React Universal Blog&nbsp;powered by the Cosmic JS content platform. &nbsp;You can enjoy me on the server or the browser. &nbsp;If you are a Google robot, feel free to navigate through all of my pages and add them to your search index! &nbsp;If you are a human, enjoy browsing my pages super fast because I'm also a single page application!<div><br></div><div><a href=\"https://github.com/tonyspiro/react-universal\" target=\"_blank\">Click here to view my source.</a><br><div><br></div><div>Cheers!</div><div>React Universal Blog</div></div>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "99e55210-8449-11e5-adfe-014902af5eff-steamworkshop_webupload_previewfile_327002106_preview.jpg",
+            "key": "hero",
+            "title": "Hero",
+            "type": "file",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "About Me",
+            "key": "headline",
+            "title": "Headline",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "I'll tell you some stuff then I'll ask about you",
+            "key": "subheadline",
+            "title": "Subheadline",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "page",
+        "created": "2015-11-06T03:26:39.542Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": null,
+        "order": 3,
+        "modified": "2015-11-06T06:19:34.580Z"
+      },
+      {
+        "_id": "563c1def1ae7fe0f41000049",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "slug": "contact",
+        "title": "Contact",
+        "content": "<div style=\"text-align: center;\"><span style=\"line-height: 1.42857;\">Like what I do? &nbsp;Hit me up at </span><a href=\"mailto:support@cosmicjs.com\" style=\"line-height: 1.42857; background-color: rgb(255, 255, 255);\">support@cosmicjs.com</a></div>",
+        "metafields": [
+          {
+            "edit": 1,
+            "value": "0e2445e0-844b-11e5-adfe-014902af5eff-deep_space_nebula_by_hameed.jpg",
+            "key": "hero",
+            "title": "Hero",
+            "type": "file",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "Contact Me",
+            "key": "headline",
+            "title": "Headline",
+            "type": "text",
+            "children": false
+          },
+          {
+            "edit": 1,
+            "value": "If you need anything, sugar, advice, I try to be a good neighbor",
+            "key": "subheadline",
+            "title": "Subheadline",
+            "type": "text",
+            "children": false
+          }
+        ],
+        "type_slug": "page",
+        "created": "2015-11-06T03:26:39.543Z",
+        "user_id": "55767c3ffbcf5cbb13000001",
+        "options": null,
+        "order": 4,
+        "modified": "2015-11-06T06:08:00.568Z"
+      }
+    ],
+    "media": [
+      {
+        "_id": "563c3d8e1ae7fe0f4100008a",
+        "name": "0a253dc0-8449-11e5-adfe-014902af5eff-steamworkshop_webupload_previewfile_327002106_preview.jpg",
+        "original_name": "steamworkshop_webupload_previewfile_327002106_preview.jpg",
+        "size": 145499,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2015-11-06T05:41:34.264Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      },
+      {
+        "_id": "563c3df11ae7fe0f4100008b",
+        "name": "45904530-8449-11e5-adfe-014902af5eff-space_11.jpg",
+        "original_name": "space_11.jpg",
+        "size": 186217,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2015-11-06T05:43:13.933Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      },
+      {
+        "_id": "563c3e7f1ae7fe0f4100008d",
+        "name": "99e55210-8449-11e5-adfe-014902af5eff-steamworkshop_webupload_previewfile_327002106_preview.jpg",
+        "original_name": "steamworkshop_webupload_previewfile_327002106_preview.jpg",
+        "size": 145499,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2015-11-06T05:45:35.418Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      },
+      {
+        "_id": "563c40ef1ae7fe0f4100008e",
+        "name": "0e2445e0-844b-11e5-adfe-014902af5eff-deep_space_nebula_by_hameed.jpg",
+        "original_name": "deep_space_nebula_by_hameed.jpg",
+        "size": 276879,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2015-11-06T05:55:59.945Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      },
+      {
+        "_id": "57990bc3ed7a775367002aee",
+        "name": "88c45370-5430-11e6-a6a3-41ff49de9ecd-download.jpeg",
+        "original_name": "download.jpeg",
+        "size": 124142,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2016-07-27T19:30:11.116Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      },
+      {
+        "_id": "57990c15ed7a775367002b02",
+        "name": "b9d4e740-5430-11e6-a6a3-41ff49de9ecd-download (1).jpeg",
+        "original_name": "download (1).jpeg",
+        "size": 561637,
+        "type": "image/jpeg",
+        "bucket": "563c1dbe1ae7fe0f41000036",
+        "created": "2016-07-27T19:31:33.444Z",
+        "folder": null,
+        "location": "https://cosmicjs.com/uploads"
+      }
+    ],
+    "media_folders": null,
+    "plugins": null
+  }
+}

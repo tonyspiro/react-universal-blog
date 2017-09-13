@@ -53,7 +53,7 @@ export default class Blog extends Component {
       
       // Get current page slug
       const slug = this.props.params.slug
-      const articles_object = _.indexBy(articles, 'slug')
+      const articles_object = _.keyBy(articles, 'slug')
       const article = articles_object[slug]
       main_content = <BlogSingle article={ article } />
 

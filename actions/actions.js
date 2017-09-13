@@ -19,23 +19,23 @@ export function getStore(callback){
     let globals = AppStore.data.globals
     globals.text = response.object['text']
     let metafields = globals.text.metafields
-    let menu_title = _.findWhere(metafields, { key: 'menu-title' })
+    let menu_title = _.find(metafields, { key: 'menu-title' })
     globals.text.menu_title = menu_title.value
 
-    let footer_text = _.findWhere(metafields, { key: 'footer-text' })
+    let footer_text = _.find(metafields, { key: 'footer-text' })
     globals.text.footer_text = footer_text.value
 
-    let site_title = _.findWhere(metafields, { key: 'site-title' })
+    let site_title = _.find(metafields, { key: 'site-title' })
     globals.text.site_title = site_title.value
 
     // Social
     globals.social = response.object['social']
     metafields = globals.social.metafields
-    let twitter = _.findWhere(metafields, { key: 'twitter' })
+    let twitter = _.find(metafields, { key: 'twitter' })
     globals.social.twitter = twitter.value
-    let facebook = _.findWhere(metafields, { key: 'facebook' })
+    let facebook = _.find(metafields, { key: 'facebook' })
     globals.social.facebook = facebook.value
-    let github = _.findWhere(metafields, { key: 'github' })
+    let github = _.find(metafields, { key: 'github' })
     globals.social.github = github.value
 
     // Nav
@@ -81,28 +81,28 @@ export function getPageData(page_slug, post_slug){
   // Get page info
   const data = AppStore.data
   const pages = data.pages
-  const page = _.findWhere(pages, { slug: page_slug })
+  const page = _.find(pages, { slug: page_slug })
   const metafields = page.metafields
   if(metafields){
-    const hero = _.findWhere(metafields, { key: 'hero' })
+    const hero = _.find(metafields, { key: 'hero' })
     page.hero = config.bucket.media_url + '/' + hero.value
 
-    const headline = _.findWhere(metafields, { key: 'headline' })
+    const headline = _.find(metafields, { key: 'headline' })
     page.headline = headline.value
 
-    const subheadline = _.findWhere(metafields, { key: 'subheadline' })
+    const subheadline = _.find(metafields, { key: 'subheadline' })
     page.subheadline = subheadline.value
   }
 
   if(post_slug){
     if(page_slug === 'home'){
       const articles = data.articles
-      const article = _.findWhere(articles, { slug: post_slug })
+      const article = _.find(articles, { slug: post_slug })
       page.title = article.title
     }
     if(page_slug === 'work'){
       const work_items = data.work_items
-      const work_item = _.findWhere(work_items, { slug: post_slug })
+      const work_item = _.find(work_items, { slug: post_slug })
       page.title = work_item.title
     }
   }

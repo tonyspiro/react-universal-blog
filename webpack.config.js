@@ -15,11 +15,10 @@ module.exports = {
     publicPath: '/dist/'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: loaders,
-      exclude: /node_modules/
-    }]
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({

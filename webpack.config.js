@@ -1,11 +1,6 @@
 // webpack.config.js
 var webpack = require('webpack')
 
-if(process.env.NODE_ENV === 'development'){
-  var loaders = ['react-hot','babel']
-} else {
-  var loaders = ['babel']
-}
 module.exports = {
   devtool: 'eval',
   entry: './app-client.js',
@@ -16,8 +11,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+      { test: /\.js$/, loaders: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loaders: 'babel-loader', exclude: /node_modules/ }
     ]
   },
   plugins: [

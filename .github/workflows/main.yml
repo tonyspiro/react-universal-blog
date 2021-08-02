@@ -24,3 +24,4 @@ jobs:
         - run: |
             docker build . -t itech.azurecr.io/appn2:${{ github.sha }}
             docker push itech.azurecr.io/appn2:${{ github.sha }}
+ 

@@ -3,3 +3,4 @@ FROM node:12-alpine
  COPY . .
  RUN npm install
  CMD ["/bin/sh", "-c", "npm  start"]
+ 

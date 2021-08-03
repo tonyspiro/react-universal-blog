@@ -24,4 +24,4 @@ jobs:
         - run: |
             docker build . -t itech.azurecr.io/appn2:${{ github.sha }} -t itech.azurecr.io/appn2:latest
             docker push  --all-tags itech.azurecr.io/appn2 
- 
+  

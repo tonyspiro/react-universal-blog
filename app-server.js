@@ -17,7 +17,7 @@ const app = express()
 app.engine('html', hogan)
 app.set('views', __dirname + '/views')
 app.use('/', express.static(__dirname + '/public/'))
-app.set('port', (process.env.PORT || 3000))
+app.set('port', (process.env.PORT || 3200))
 
 app.get('*',(req, res) => {
 
